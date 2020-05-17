@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120358057-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-120358057-1');
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+
+<script type="text/javascript">
+   (function(){
+      emailjs.init("user_XFxoXJ2PNtNHUNeXdjh7r");
+   })();
+</script>
+<script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // generate the contact number value
+                this.contact_number.value = Math.random() * 100000 | 0;
+                emailjs.sendForm('contact_service', 'contact_form', this);
+            });
+        }
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta charset="utf-8"/>
+	<title>fefo</title>
+	<link rel="stylesheet" type="text/css" href="./style.css">
+	<meta name="google-site-verification" content="5I4PU6XqRY1nYFViDqNYlqPGr7zBm7TeTOoBwlrNO9Q" />
+</head>
+
+<body>
+
+<div style="max-width: 782px; width: 100%">
+	<h1>fefo</h1>
+	
+	<div style="width:50%;">
+	<hr noshade="noshade"/>  
+	</div>
+	
+	<nav>
+	 <h4>	
+		<a href="./bio.html">bio</a>&nbsp;
+		<a href="./som.html">som</a>&nbsp;
+		<a href="./foto.html">foto</a>&nbsp;								
+		
+		<a href="./pd.html">pd</a>&nbsp;
+		<a href="./datas.html">datas</a>&nbsp;
+	 </h4>
+	</nav>
+	
+	<div>
+		<h1>404</h1>
+
+		<!---
+		<p>Não há nada aqui por enquanto... aproveite e deixe seu email:</p>
+		<form id="contact-form">
+			<input type="hidden" name="_next" value="https://ofefo.com.br/obrigado.html" />
+        	<input type="email" name="user_email" value="Email">
+        	<input type="submit" value="Send">
+       	</form>
+       	-->
+		<form target="_blank" method="POST" action="https://formspree.io/xoqnpkze">
+			<input type="hidden" name="_next" value="https://ofefo.com.br/obrigado.html" />
+			<input type="text" placeholder="Email" name="Email" size="20">
+			<input type="submit" value="Inscreva-me!">
+		</form>
+	</div>
+</div>
+</body> 
+</html>
