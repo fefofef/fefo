@@ -1,0 +1,223 @@
+/* oi */
+
+/* MAIN */
+/* corpo do site */
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;	
+	color:#ffffff;
+	background-color: rgb(75, 75, 75);
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+div.inner {
+	max-width: 782px;
+	width: 100%;
+	margin:0 auto;
+}
+
+
+/* HEADING */
+
+h1.refracao {
+    display: inline;
+    position: absolute;
+    color: rgb(59, 248, 248);
+    letter-spacing: 0.02em;
+    perspective: 500px;
+}
+
+h1.refracao::before,
+h1.refracao::after {
+    content: attr(aria-label);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    text-shadow: 0.01em 0.01em 0.01em rgba(0, 0, 0, 0.3);
+}
+
+h1.refracao::before {
+    animation: floatAbove 3.5s ease-in-out infinite;
+    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
+            clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
+}
+
+h1.refracao::after {
+    opacity: 0.65;
+    filter: blur(0.02em);
+    transform: translate(-50%, -50%) rotateX(21deg);
+    animation: floatBelow 3.5s ease-in-out infinite;
+    -webkit-clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
+            clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
+}
+
+@keyframes floatAbove {
+    50% {
+        transform: translate(-50%, -60%);
+        -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 60%);
+                clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 60%);
+    }
+}
+
+@keyframes floatBelow {
+    50% {
+        transform: translate(-50%, -60%) rotateX(10deg);
+        -webkit-clip-path: polygon(0% 60%, 100% 60%, 100% 100%, 0% 100%);
+                clip-path: polygon(0% 60%, 100% 60%, 100% 100%, 0% 100%);
+    }
+}
+
+/* PARAGRAFOS */
+
+p {font-family: 'Open Sans';
+	font-size: 100%;	
+	color:#f2f2f2;
+}
+
+p.justo {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* ESPACOS */
+
+/*
+br {
+    display: block;
+    content: "";
+    margin-top: 1.5%;
+}
+*/
+
+/* IMAGENS */
+/* perfil index */
+img.idx {width: 355px; /*355px*/
+	height: 388px; /*388px*/
+}
+
+/* capas bandcamp */
+img.bandcamp {width: 50%;
+	height: 50%;
+}
+
+img.bandcamp:hover {box-shadow: 0 0 2px 1px;
+	color: #ff6e00;
+}
+
+/*fotos do calendario*/
+img.datas {width: 80%;
+	height: 80%;
+}
+
+/* fotos deitadas na horizontal */
+img.hor {width: 100%;
+	height: 100%;
+}
+
+/* fotos em pé na vertical */
+img.ver {width:324px;
+	height:432px;
+}
+
+/* mini fotos deitadas na horizontal */
+img.minihor:hover {box-shadow: 0 0 2px 1px;
+	color: #ff6e00;
+	width: 80px;
+	height: 60px;
+}
+
+/* mini fotos em pé na vertical */
+img.miniver:hover {box-shadow: 0 0 2px 1px;
+	color: #ff6e00;
+	width:60px;
+	height:80px;
+}
+
+/* borda demais imagens com link */
+img.link:hover {box-shadow: 0 0 2px 1px;
+	color: #ff6e00;
+}
+
+/* borda do perfil da bio */
+img.bio {border-style: solid;
+	border-width: 1px;
+	border-color: #ffffff;
+}
+
+img.redirect { width: 15px;
+	height: 15px;
+}
+
+/* DIAGRAMAÇÃO */
+/* colunas e centro */
+div.meio {width: 60%;
+}
+
+/* canto */
+div.canto {width: 25%;
+}
+
+/* albuns fotograficos */
+
+/*div.fotografia {width: 100%}*/
+
+div.noite {float: left;
+	width: 1200px;
+}
+
+/* LINKS */
+/* link nao visitado*/
+a:link {color: #ffb84d;
+	text-decoration: none;
+}
+
+/* link visitado */
+a:visited {color: #ffb84d;
+	text-decoration: none;
+}
+
+/* mouse sobre link */
+a:hover {color: #ff6e00;
+	text-decoration: none;
+}
+
+/* link selecionado */
+a:active {color:  #ffffff;
+	text-decoration: none;
+} 
+
+/*Email form*/
+
+input[type=text] {
+  width:30%;
+  padding: 1%;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width:15%;
+  padding: 1%;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  background-color: #ffb84d;
+  color: black;
+  border: none;
+}
+
+input[type=submit]:hover {
+  opacity: 0.8;
+}
+
+/* https://fonts.googleapis.com/css?family=Geo */
+@font-face {  font-family: 'Geo';  font-style: normal;  font-weight: 400;  src: local('Geo'), local('Geo-Regular'), url(https://fonts.gstatic.com/s/geo/v9/lutaIpfXBU1nwBiNdnFGUw.woff2) format('woff2');  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;}
+/* https://fonts.googleapis.com/css?family=Open+Sans */
+/* latin-ext */@font-face {  font-family: 'Open Sans';  font-style: normal;  font-weight: 400;  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v15/u-WUoqrET9fUeobQW7jkRRJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;}
+/* latin */@font-face {  font-family: 'Open Sans';  font-style: normal;  font-weight: 400;  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v15/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;}
