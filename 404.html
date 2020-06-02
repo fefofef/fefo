@@ -2,32 +2,6 @@
 
 <html>
 <head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120358057-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-120358057-1');
-</script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
-
-<script type="text/javascript">
-   (function(){
-      emailjs.init("user_XFxoXJ2PNtNHUNeXdjh7r");
-   })();
-</script>
-<script type="text/javascript">
-        window.onload = function() {
-            document.getElementById('contact-form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                // generate the contact number value
-                this.contact_number.value = Math.random() * 100000 | 0;
-                emailjs.sendForm('contact_service', 'contact_form', this);
-            });
-        }
-</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <meta charset="utf-8"/>
 	<title>fefo</title>
