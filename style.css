@@ -42,6 +42,11 @@ p.bandcamp {
 	max-width: 45%;
 }
 
+p.ping {
+	text-justify: inter-word;
+	max-width: 47%;
+}
+
 /* ESPACOS */
 
 /*
