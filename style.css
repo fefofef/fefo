@@ -88,13 +88,23 @@ img.ver {width:324px;
 }
 
 /* mini fotos deitadas na horizontal */
+img.minihor {
+	width: 30%;
+}
+
+img.miniver {
+	max-height: 240px;
+}
+
 img.minihor:hover {box-shadow: 0 0 2px 1px;
 	color: #ff6e00;
+	width: 30%;
 }
 
 /* mini fotos em pé na vertical */
 img.miniver:hover {box-shadow: 0 0 2px 1px;
 	color: #ff6e00;
+	height: 1%;
 }
 
 /* borda demais imagens com link */
