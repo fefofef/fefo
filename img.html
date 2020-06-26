@@ -48,14 +48,18 @@
 		<br>
 		<br>
 		<a href="./img/saibro.html"><img src="./img/mini/saibro.jpg" class="minihor" title="saibro 2017/10"></a>&nbsp;&nbsp;
-		<a href="./img/curvas.html"><img src="./img/mini/curvas.jpg" class="minihor" title="curvas, 2017/10"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="./img/noite.html"><img src="./img/mini/noite.jpg" class="miniver" title="noite 2017/09"></a>&nbsp;&nbsp;
+		<a href="./img/curvas.html"><img src="./img/mini/curvas.jpg" class="minihor" title="curvas, 2017/10"></a>&nbsp;&nbsp;
+		<a href="./img/noite.html"><img id="noite_mini" src="./img/mini/noite.jpg" class="miniver" title="noite 2017/09"></a>&nbsp;&nbsp;
 		<br>
 		<br>
 		<a href="./img/panorama.html"><img src="./img/mini/panorama.jpg" class="minihor" title="panorama 2017/09"></a>&nbsp;&nbsp;
 		<a href="./img/meristema.html"><img src="./img/mini/meristema.jpg" class="minihor" title="meristema 2017-"></a>
 		</div>
 	</div>
-	
+	<script>
+		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+			document.getElementById("noite_mini").style.max-height = 100px;
+			}
+	</script>
 </body> 
 </html>

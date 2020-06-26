@@ -77,23 +77,25 @@ img.datas {width: 80%;
 	height: 80%;
 }
 
-/* fotos deitadas na horizontal */
+/* fotos na horizontal */
 img.hor {width: 100%;
 	height: 100%;
 }
 
-/* fotos em pé na vertical */
+/* fotos na vertical */
 img.ver {width:324px;
 	height:432px;
 }
 
-/* mini fotos deitadas na horizontal */
+/* mini fotos na horizontal */
 img.minihor {
 	width: 30%;
 }
 
+/* mini fotos na vertical */
 img.miniver {
 	max-height: 240px;
+	width: 30%;
 }
 
 img.minihor:hover {box-shadow: 0 0 2px 1px;
@@ -101,7 +103,7 @@ img.minihor:hover {box-shadow: 0 0 2px 1px;
 	width: 30%;
 }
 
-/* mini fotos em pé na vertical */
+/* mini fotos na vertical */
 img.miniver:hover {box-shadow: 0 0 2px 1px;
 	color: #ff6e00;
 	height: 1%;
