@@ -7,7 +7,6 @@ Felippe Brandão
 
 ## to do
 
-1. Implementar navegação por atalhos de teclado
-2. Terminar BARRO:
+1. Terminar BARRO:
 * Gravador local com START e STOP
 * Definir tempos
