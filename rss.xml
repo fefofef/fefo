@@ -6,7 +6,7 @@
 		<description>Personal website and artistic portfolio</description>
 	
 		<item>
-			<title>ficando em casa</tile>
+			<title>ficando em casa</title>
 			<description>staying at home</description>
 		</item>
 
@@ -21,7 +21,7 @@
 		</item>
 		
 		<item>
-			<title>15/02/2020: JAM de contato improvisação com TaTo na FUNARTE-MG.
+			<title>15/02/2020: JAM de contato improvisação com TaTo na FUNARTE-MG.</title>
 			<description>Tocando com Francisco César e Rafael Paulino</description>
 		</item>
 		
@@ -30,13 +30,13 @@
 		</item>
 		
 		<item>
-			<title>26/11/2019: PING na 34ª MOCÓ, no Conservatório da UFMG
+			<title>26/11/2019: PING na 34ª MOCÓ, no Conservatório da UFMG.</title>
 			<link>https://ofefo.com.br/mus#ping</link>
-			<desctiption>Jogando contra Caio Campos</description>
+			<description>Jogando contra Caio Campos</description>
 		</item>
 		
 		<item>
-			<title>23/11/2019: não-igual (≠) no festival Gobierno No!, no Saramandaia.
+			<title>23/11/2019: não-igual (≠) no festival Gobierno No!, no Saramandaia.</title>
 			<description>Produzindo quantidades imensas de ruído com Caio Campos</description>
 		</item>
 		
@@ -72,13 +72,13 @@
 		
 		<item>
 			<title>12/09/2019: estreia brasileira da peça Holding Office, de Olle Sundström, na Kasa Invisível.</title>
-			<desctiption>Jogando com e contra João Viana, Luiz Pretti e Marcos Alves</description>
+			<description>Jogando com e contra João Viana, Luiz Pretti e Marcos Alves</description>
 		</item>
 		
 		<item>
 			<title>02/08/2019: comemoração do Dia Nacional de Combate à Humanidade, na galeria Mama/Cadela.</title>
 			<link>https://www.youtube.com/watch?v=L7J1iRVvMK8</link>
-			<description>Bebendo e praticando código morse com DJ Javaral, Dorothé Depeauw, Henrique Iwao e Preto Matheusi</desctiption>
+			<description>Bebendo e praticando código morse com DJ Javaral, Dorothé Depeauw, Henrique Iwao e Preto Matheusi</description>
 		</item>
 		
 		<item>
@@ -97,51 +97,84 @@
 		</item>
 		
 		<item>
-			<title>29/06/2019: bifurcações, para flauta e live-electronics e desassossego, para clarineta e live-electronics (estreia), em concerto com o grupo imaginários sonoros no Conservatório da UFMG.
-		Tocadas por Danielle Reis (flauta) e Emília Carneiro (clarineta)</item>
-		
-		<item><title>05/06/2019: <link>https://www.youtube.com/watch?v=pNEn4qWlp74" target="_blank">música e dança improvisada com o GILU no Centro Cultural da UFMG.
-		Convidando as bailarinas Ana Rita Nicoliello, Helena Carneiro e Luana Vitra</item>
-		
-		<item><title>04/03/2019: <link>https://www.youtube.com/watch?v=jEP_jgpSgaY" target="_blank">Blitzkrieg Noise #08 na calçada da Casa da Valéria, no carnaval do Santa Tereza.
-		Contribuindo com a diversidade e magia do Carnaval</item>
-		
-		<item><title>14/12/2018: apresentação/comentário da peça bifurcações, nos <link>https://www.youtube.com/watch?v=cYvQ6fG2mWM" target="_blank">Seminários de Composição da UFMG.</item>
-		
-		<item><title>06/12/2018: estreia da peça bifurcações, para flauta e live electronics, no espetáculo imaginários sonoros na galeria da EBA-UFMG.
-		Tocada por Rodrigo Frade</item>
-
-		<item><title>04/12/2018: improvisação livre com o GILU n'A Casa Verde.
-		Tocando peças de Nathália Fragoso e Marco Scarassati</item>
-		
-		<item><title>26/09/2018: GRudpO no Conservatório da UFMG: música eletroacústica tocada a partir de seis laptops interagindo em tempo real por rede.
-		Com Breno Bragança, Fernando Rocha, José Padovani, Rubens Silva e Sérgio Freire, cada um em seu computador, ao redor do público</item>
-		
-		<item><title>08/07/2018: JAM com grupos de contato improvisação na Sala Preta da Escola de Belas Artes.
-		Com 'Proyeto TerSer Cuerpo', 'Grupo Contemporaneo de Dança Livre', 'TaTo' e 'Terceira Margem'</item>
-		
-		<item><title>12/06/2018: concerto com o GILU no Conservatório da UFMG.
-		Estreia da peça Territórios, de Marco Scarassati</item>
-		
-		<item><title>02/06/2018: <link>https://ofefo.bandcamp.com/album/pra-aseis" target="_blank">barulheira desenfreada no Praça 6: Música de Ruído, na Praça 7 de Setembro, Centro de BH.</item>
-		<link>https://archive.org/details/praca6/2018-06-02Praa61Fefo.mp3" target="_blank">Solo
-			
-			<link>https://archive.org/details/praca6/2018-06-02Praa63FefoQuasicrystal.mp3" target="_blank">Fefo + Quasicrystal
+			<title>29/06/2019: bifurcações, para flauta e live-electronics e desassossego, para clarineta e live-electronics (estreia), em concerto com o grupo imaginários sonoros no Conservatório da UFMG.</title>
+			<description>Tocadas por Danielle Reis (flauta) e Emília Carneiro (clarineta)</description>
 		</item>
 		
-		<item><title>25/05/2018: release digital da peça acusmática <link>https://ofefo.com.br/mus#dysgraphia" target="_blank">dysgraphia.</item>
+		<item>
+			<title>05/06/2019: música e dança improvisada com o GILU no Centro Cultural da UFMG.</title>
+			<link>https://www.youtube.com/watch?v=pNEn4qWlp74</link>
+			<description>Convidando as bailarinas Ana Rita Nicoliello, Helena Carneiro e Luana Vitra</description>
+		</item>
 		
-		<item><title>19/05/2018: convidado para o Quartas de Improviso, <link>https://archive.org/details/qi_mama_cadela/QI115+Iwao-Koole+%2B+Deise+Oliveira%2C+Joaquim+Avelino%2C+Fefo.mp3" target="_blank">edição nº 115, na galeria Mama/Cadela.
-		Tocando com Iwao-Koole, Deise Oliveira e Joaquim Avelino</item>
+		<item>
+			<title>04/03/2019: Blitzkrieg Noise #08 na calçada da Casa da Valéria, no carnaval do Santa Tereza.</title>
+			<link>https://www.youtube.com/watch?v=jEP_jgpSgaY</link>
+			<description>Contribuindo com a diversidade e magia do Carnaval</description>
+		</item>
 		
-		<item><title>18/05/2018: improvisação livre com o GILU e bailarinas, na abertura da exposição Deriva XII.
-		Com Ana Rita Nicoliello, Duna Dias, Helena Carneiro, Italo Augusto e Rodrigo Antero</item>
+		<item>
+			<title>14/12/2018: apresentação/comentário da peça bifurcações, nos Seminários de Composição da UFMG.</title>
+			<link>https://www.youtube.com/watch?v=cYvQ6fG2mW</link>
+		</item>
+		
+		<item>
+			<title>06/12/2018: estreia da peça bifurcações, para flauta e live electronics, no espetáculo imaginários sonoros na galeria da EBA-UFMG.</title>
+			<description>Tocada por Rodrigo Frade</description>
+		</item>
 
-		<item><title>30/11/2017: improvisação livre com o GILU na ESMU-UFMG.
-		Com diretrizes musicais sorteadas em tempo real pelo <link>./mus#maestrandom">maestRandom</item>
+		<item>
+			<title>04/12/2018: improvisação livre com o GILU n'A Casa Verde.</title>
+			<description>Tocando peças de Nathália Fragoso e Marco Scarassati</description>
+		</item>
+		
+		<item>
+			<title>26/09/2018: GRudpO no Conservatório da UFMG - música eletroacústica tocada a partir de seis laptops interagindo em tempo real por rede.</title>
+			<description>Com Breno Bragança, Fernando Rocha, José Padovani, Rubens Silva e Sérgio Freire, cada um em seu computador, ao redor do público</description>
+		</item>
+		
+		<item>
+			<title>08/07/2018: JAM com grupos de contato improvisação na Sala Preta da Escola de Belas Artes.</title>
+			<description>Com 'Proyeto TerSer Cuerpo', 'Grupo Contemporaneo de Dança Livre', 'TaTo' e 'Terceira Margem'</description>
+		</item>
+		
+		<item>
+			<title>12/06/2018: concerto com o GILU no Conservatório da UFMG.</title>
+			<description>Estreia da peça Territórios, de Marco Scarassati</description>
+		</item>
+		
+		<item>
+			<title>02/06/2018: barulheira desenfreada no Praça 6: Música de Ruído, na Praça 7 de Setembro, Centro de BH.</title>
+			<link>https://ofefo.com.br/mus#pracaseis</link>
+		</item>
+		
+		<item>
+			<title>25/05/2018: release digital da peça acusmática dysgraphia.</title>
+			<link>https://ofefo.com.br/mus#dysgraphia</link>
+		</item>
+		
+		<item>
+			<title>19/05/2018: convidado para o Quartas de Improviso, edição nº 115, na galeria Mama/Cadela.</title>
+			<link>https://archive.org/details/qi_mama_cadela/QI115+Iwao-Koole+%2B+Deise+Oliveira%2C+Joaquim+Avelino%2C+Fefo.mp3</link>
+			<description>Tocando com Iwao-Koole, Deise Oliveira e Joaquim Avelino</description>
+		</item>
+		
+		<item>
+			<title>18/05/2018: improvisação livre com o GILU e bailarinas, na abertura da exposição Deriva XII.</title>
+			<description>Com Ana Rita Nicoliello, Duna Dias, Helena Carneiro, Italo Augusto e Rodrigo Antero</description>
+		</item>
 
-		<item><title>01/11/2017: convidado para o Quartas de Improviso, <link>https://archive.org/details/qi_temporada10/Qi108Iwao-kooleAnaLuziaDanielTamiettiFefo1.mp3" target="_blank">edição nº 108, no Luthier Bar.
-		Com Iwao-Koole, Ana Luzia Pimenta e Daniel Tamietti</item>
+		<item>
+			<title>30/11/2017: improvisação livre com o GILU na ESMU-UFMG.</title>
+			<link>https://ofefo.com.br/mus#maestrandom</link>
+			<description>Com diretrizes musicais sorteadas em tempo real pelo masestRandom</description>
+		</item>
+
+		<item>
+			<title>01/11/2017: convidado para o Quartas de Improviso, edição nº 108, no Luthier Bar.</title>
+			<link>https://archive.org/details/qi_temporada10/Qi108Iwao-kooleAnaLuziaDanielTamiettiFefo1.mp3</link>
+			<description>Com Iwao-Koole, Ana Luzia Pimenta e Daniel Tamietti</description>
+		</item>
 
 		<item>
 			<title>27/09/2017: concerto com o GILU, no projeto Viva Música.</title>
@@ -153,21 +186,36 @@
 		</item>
 
 		<item>
-			<title>17/08/2017: co-masterização do álbum Espumas da Robs Schulze.
+			<title>17/08/2017: co-masterização do álbum Espumas da Robs Schulze.</title>
 			<link>https://robsschulze.bandcamp.com/album/espumas</link>
 		</item>
 
-		<item><title>2016: improviso coletivo aberto com o DRAUZIUS na semana cultural do IGC-UFMG.</item>
+		<item>
+			<title>2016: improviso coletivo aberto com o DRAUZIUS na semana cultural do IGC-UFMG.</title>
+		</item>
 
-		<item><title>2016: release digital do álbum <link>https://ofefo.bandcamp.com/album/cadaeco" target="_blank">cadaeco.</item>
+		<item>
+			<title>2016: release digital do álbum cadaeco</title>
+			<link>https://ofefo.com.br/mus#cadaeco</link>
+		</item>
 
-		<item><title>2016: improviso coletivo aberto com o DRAUZIUS na EAD-UFMG.</item>
+		<item>
+			<title>2016: improviso coletivo aberto com o DRAUZIUS na EAD-UFMG.</title>
+		</item>
 
-		<item><title>2015: release digital do álbum <link>https://ofefo.bandcamp.com/album/quatrocordas" target="_blank">quatrocordas.</item>
+		<item>
+			<title>2015: release digital do álbum quatrocordas.</title>
+			<link>https://ofefo.com.br/mus#quatrocordas</link>
+		</item>
 
-		<item><title>2015: participação no álbum <link>https://tmdch.bandcamp.com/album/fank" target="_blank">FANK do Tomodachi.</item>
+		<item>
+			<title>2015: participação no álbum FANK, do Tomodachi.</title>
+			<link>https://tmdch.bandcamp.com/album/fank.</link>
+		</item>
 
-				<item><title>2014: apresentação da dupla Tartaruga Cúbica na semana cultural da FDCE-UFMG.</item>
+		<item>
+			<title>2014: apresentação da dupla Tartaruga Cúbica na semana cultural da FDCE-UFMG.</title>
+		</item>
 	</channel>
 
 </rss>
