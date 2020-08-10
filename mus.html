@@ -34,7 +34,7 @@
 	<br>
 	<br>
 	<div id="mus-intro">
-		<p align="left">Aqui você encontra gravações e links para projetos sonoros/musicais, 
+		<p style="text-align: left">Aqui você encontra gravações e links para projetos sonoros/musicais, 
 			bem como para meus perfis em websites de compartilhamento de mídia. 
 			O material varia entre peças isoladas a álbuns completos organizado por ordem cronológica.
 			Há performances solo, colaborações, gravações de campo, sistemas interativos, partituras abertas e peças eletrônicas.			
@@ -44,13 +44,15 @@
 		</p>
 		<br>
 		<br>
-		<p align="right">Here you can find recordings and links for sound/musical projects, as well as for my profiles in media sharing websites. 
+		<p style="inline-block; text-align: right;">Here you can find recordings and links for sound/musical projects, as well as for my profiles in media sharing websites. 
 			The material varies between isolated pieces and full albuns, and everything is in chronological order.
 			There are solo performances, collaborations, field recordings, interactive systems, open scores and electronic pieces.						  
 			<br>All music I've been producing has been freely distributed online, then if something touches you deeply, 
 			it's possible to contribute via Bandcamp (acessible by clickling on the images).
 			<br>Enjoy!
-		</p>
+			<br>
+			<br>PS: to read the page in English: <span><button id="english" type="english" style="display:inline;" onclick="English()">Click here!</button></span></p>
+		</span>
 	</div>
 	<br>
 	<div align="center">		
@@ -65,8 +67,8 @@
 	<br>
 	<div id="welcomebach" align="right" style="margin-bottom: 30%;">
 		<h4><a href="https://ofefo.com.br/mus#welcomebach">#</a> welcomeBach (2020)</h4>
-		<p><i>Sua dose diária de contraponto</i>
-		<br><br>Em meio à quarentena, decidi que queria escutar toda a obra musical de J.S. Bach.<br>Insatisfeito com minhas tentativas anteriores de explorar algum repertório por completo de forma consistente, resolvi solucionar o problema com um script <i>Python</i>.
+		<p id="welcomeBach-text"><i>Sua dose diária de contraponto</i>
+		<br><br>Em meio à quarentena, decidi escutar toda a obra musical de J.S. Bach.<br>Insatisfeito com minhas tentativas anteriores de explorar algum repertório por completo de forma consistente, resolvi solucionar o problema com um script <i>Python</i>.
 		<br>
 		<br>O projeto é compatível com sistemas *nix em geral, e consiste em um sorteio, a ser realizado diariamente, de uma peça bachiana ainda não escutada, fornecendo uma lista de links do YouTube para se ouvir gravações desta.
 		<br>
@@ -79,7 +81,7 @@
 	<div id="emersao" align="left" style="margin-bottom: 50%;">
 		<h4><a href="https://ofefo.com.br/mus#emersao">#</a> emersão (2020), 8'</h4>
 		<a href="https://ofefo.bandcamp.com/track/emers-o" target="_blank"><img class="bandcamp" src="./mus/emersao.jpg" align="right"/></a>
-			<p class="bandcamp"><i>Paisagem sonora</i>
+			<p id="emersao-text" class="bandcamp"><i>Paisagem sonora</i>
 			<br>
 			<br>À medida em que se chega mais perto da superfície, mergulhadores escutam sons se transmutando...
 			<br>
@@ -87,22 +89,22 @@
 			<br>
 			<audio controls>
   			<source src="./mus/emersao.mp3" type="audio/mp3">
-			Seu navegador não suporta o tocador de áudio!
+			Your browser does not support the audio player!
 			</audio>
 	</div>
 
 	<div id="ping" align="center" style="margin-bottom: 50%;">
 		<h4><a href="https://ofefo.com.br/mus#ping">#</a> PING (2019), 15'</h4>
-			<p><i>Sistema audiovisual interativo controlado por improvisos musicais</i>
+			<p id="ping-desc"><i>Sistema audiovisual interativo controlado por improvisos musicais</i>
 				<br>
-				Elaborado com Caio Campos.
+				Elaborado com Caio Campos
 			</p>
 				<iframe align="left" width="100%" height="360" src="https://www.youtube.com/embed/aa5W2g5zsTM?rel=0" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			</div>
 			<br>
 			<div align="left" style="margin-bottom: 30%;">
-			<p>
-			PING é uma releitura de PONG, o jogo clássico da ATARI, 
+			<p id="ping-text">
+			PING é inpirado em PONG, o jogo clássico da ATARI, 
 			repensado como um sistema audiovisual que interage com a improvisação musical, 
 			de forma que cada lado desse ping-pong é controlado por um musicista que, ao invés de uma manete (ou raquete), utiliza seu instrumento.
 			<br>
@@ -115,30 +117,30 @@
 			perturbando a lógica do jogo e tecendo mais camadas na interação entre os musicistas e o sistema.</p>
 	   </div>
 
-	   <div id="agora" align="center"> 
-	   <h4><a href="https://ofefo.com.br/mus#agora">#</a> ágora (2019), (?)'</h4>
-   <p><i>Jogo para ensemble de improvisação</i></div>
-   <div align="left">
-		<br>Inspirada na instituição grega símbolo da democracia ateniense, <i>ágora</i> convida musicistas a uma assembleia musical em que há liberdade para se discutir qualquer assunto, desde que que todos os participantes tenham espaço para que sua voz seja escutada.
-		<br>
-		<br>A peça foi escrita em Outubro de 2019 e estreiada pela ensemble <i>Sonante 21</i> no mesmo mês, em concerto sob regência de Stephan Froleyks, em um projeto que envolveu partituras escritas em somente um dia e de no máximo uma página.
-		<br>
-   </div>
+	   <div id="agora" align="center">
+		   <h4><a href="https://ofefo.com.br/mus#agora">#</a> ágora (2019), (?)'</h4>
+		   <p id="agora-desc"><i>Jogo para ensemble de improvisação</i></p></div>
+	   <div align="left">
+		   <p id="agora-text">
+		   <br>Inspirada na instituição grega símbolo da democracia ateniense, <i>ágora</i> convida musicistas a uma assembleia musical em que há liberdade para se discutir qualquer assunto, desde que que todos os participantes tenham espaço para que sua voz seja escutada.
+		   <br>
+		   <br>A peça foi escrita em Outubro de 2019 e estreiada pela ensemble <i>Sonante 21</i> no mesmo mês, em concerto sob regência de Stephan Froleyks, em um projeto que envolveu partituras escritas em somente um dia e de no máximo uma página.<br></p>
+		   </div>
    <div align="center" style="margin-bottom: 30%; margin-left: 25%; width: 50%">
-		<br>A gravação a seguir é uma realização pela ensemble <i>GILU</i>, em concerto no <i>1º FIM: Festival Improvisada Música</i>, em Novembro de 2019.</p>
+	   <p id="agora-rec">
+	   <br>A gravação a seguir é uma realização pela ensemble <i>GILU</i>, em concerto no <i>1º FIM: Festival Improvisada Música</i>, em Novembro de 2019.
+	   <br><a href="./mus/agora.png" target="_blank">Partitura</a></p>
 	<audio controls>
 		<source src="./mus/agora.mp3" type="audio/mp3">
-	  Seu navegador não suporta o tocador de áudio!
+	  Your browser does not support the audio player!
 	</audio>
-	<p><a href="./mus/agora.png" target="_blank">Clique para ver a partitura</a></p>
-	<br>
-	<br>		
+	<br><br>		
 	</div>
 
 	<div id="decampo" align="left" style="margin-bottom: 60%;">
 		<h4><a href="https://ofefo.com.br/mus#decampo">#</a> decampo (2019), 6'</h4>
 		<a href="https://ofefo.bandcamp.com/album/decampo" target="_blank"><img class="bandcamp" src="./mus/decampo.jpg" align="right"/></a>
-			<p class="bandcamp"><i>Gravações de campo selecionadas</i>
+			<p id="decampo-text" class="bandcamp"><i>Gravações de campo selecionadas</i>
 			<br>
 			<br>Escuta do espaço entre um piu daqui e um vrum de lá.
 			<br>
@@ -149,7 +151,7 @@
 
 	<div id="carnaval" align="center" style="margin-bottom: 40%;">
 		<h4><a href="https://ofefo.com.br/mus#carnaval">#</a> carnaval (2019), 1'</h4>
-		<p><i>Ruído festivo</i>
+		<p id="carnaval-text"><i>Ruído festivo</i>
 			<br>
 			<br>Eu vou lá? Miss Brasil? Vai ter?
 			<br>Teaser do <a href="https://www.youtube.com/watch?v=jEP_jgpSgaY" target="_blank">Blitzkrieg Noise #08</a>
@@ -157,13 +159,13 @@
 			<br>Março 2019</p>
 		<audio controls>
   		<source src="./mus/carnaval.mp3" type="audio/mp3">
-		Seu navegador não suporta o tocador de áudio!
+		Your browser does not support the audio player!
 		</audio>
 	</div>
 
 	<div id="bifurcacoes" align="left" style="margin-bottom: 40%;">
 			<h4><a href="https://ofefo.com.br/mus#bifurcacoes">#</a> bifurcações (2018), 7'</h4>
-			<p><i>Flauta e live-electronics</i>
+			<p id="bifurcacoes-text"><i>Flauta e live-electronics</i>
 			<br>
 			<br>Escuta-se uma música aguda e como que silábica no vaivém do vento, turvada de folhas e distância. 
 			Nesse jardim imaginário, o tempo se bifurcará perpetuamente para inumeráveis futuros, revelando caminhos espelhados. 
@@ -174,10 +176,10 @@
 			<br>Estreiada por Rodrigo Frade na Galeria da EBA-UFMG.
 			<br>Dezembro 2018</p>
 			<br>
-			<div align="center"><p>Versão reduzida para estéreo:</p>
+			<div align="center"><p id="bifurcacoes-rec">Versão reduzida para estéreo:</p>
 			<audio controls>
 			<source src="./mus/bifurcacoes.mp3" type="audio/mp3">
-			Seu navegador não suporta o tocador de áudio!
+			Your browser does not support the audio player!
 			</audio>
 			</div>
 	</div>
@@ -185,12 +187,11 @@
 	<div id="praca6" align="right" style="margin-bottom: 60%;">
 		<h4><a href="https://ofefo.com.br/mus#praca6">#</a> praçaseis (2018), 46'</h4>
 		<a href="https://ofefo.bandcamp.com/album/pra-aseis" target="_blank"><img class="bandcamp" src="./mus/praçaseis.jpg" align="left"/></a>
-		<p class="bandcamp"><i>Música de ruído em praça pública</i>
+		<p id="praca6-text" class="bandcamp"><i>Música de ruído em praça pública</i>
 			<br>
-			<br>Solo e duo improvisado com Quasicrystal na Praça Sete (BH), como parte da série 
-			"<a href="https://www.youtube.com/watch?v=N65vxKMwXaI&list=PLhl6QLuwAA5HuX4UJheqv5SDjsWdt0jX9" target="_blank">Praça 6</a>".
+			<br>Solo e duo improvisado com Quasicrystal na Praça Sete (BH), como parte da série "<a href="https://www.youtube.com/watch?v=N65vxKMwXaI&list=PLhl6QLuwAA5HuX4UJheqv5SDjsWdt0jX9" target="_blank">Praça 6</a>".
 			<br>
-			<br>Tocado com o SBOX (manete mapeada digitalmente como instrumento digital), um piezo e pedais de guitarra.
+			<br>Tocado com o SBOX (manete mapeada como instrumento digital), um piezo e pedais de guitarra.
 			<br>
 			<br>Gravação e foto de capa por Henrique Iwao.
 			<br>Quasicrystal é Sanannda Acácia.
@@ -200,40 +201,39 @@
 	<div id="dysgraphia" align="left" style="margin-bottom: 50%;">
 		<h4><a href="https://ofefo.com.br/mus#dysgraphia">#</a> dysgraphia (2018), 3'</h4>
 		<a href="https://ofefo.bandcamp.com/track/dysgraphia" target="_blank"><img class="bandcamp" src="./mus/dysgraphia.jpg" align="right"/></a>
-		<p class="bandcamp"><i>Acusmática defeituosa</i>
+		<p id="dysgraphia-text" class="bandcamp"><i>Acusmática defeituosa</i>
 		<br>
 		<br>Sons acústicos e sintetizados associam escrita manual, digitação, manipulação de objetos e falhas em dispositivos eletrônicos, 
 		buscando coerência poética em meio à imperfeição.
 		<br>
-		<br>Março de 2018</p>
+		<br>Março 2018</p>
 		<br>
 		<audio controls>
   		<source src="./mus/dysgraphia.mp3" type="audio/mp3">
-		Seu navegador não suporta o tocador de áudio!
+		Your browser does not support the audio player!
 		</audio>
 	</div>
 
 	<div id="maestrandom" align="center" style="margin-bottom: 30%;">
 		<h4><a href="https://ofefo.com.br/mus#maestrandom">#</a> maestRandom (2017), 10'</h4>
-		<p aling="center"><i>Sorteador de diretrizes musicais para improviso em grupo</i></p>
-		<br>
-		<p>Pensado para performance com a ensemble <i>GILU</i>.
+		<p id="maestrandom-desc" style="text-align: center;"><i>Sorteador de diretrizes musicais para improviso em grupo</i></p>
+		<p id="maestrandom-text" style="text-align: left">Pensado para performance com a ensemble <i>GILU</i>.
 			Palavras-chave são sorteadas em intervalos de tempo aleatórios, coordenando o improviso com certa imprevisibilidade. 
 		Ao mesmo tempo, grupos instrumentais são sorteados a cada minuto para executar as ideias. 
 		As palavras foram sugeridas pelos participantes do grupo.</p>
+		<p id="maestrandom-patch"><a href="./maestro.pd" download="maestro.pd">Download do patch (.pd)</a></p>
 		<audio controls>
 			<source src="./mus/maestrandom.mp3" type="audio/mp3">
-			Seu navegador não suporta o tocador de áudio!
+			Your browser does not support the audio player!
 		</audio>
 		<br>
-		<p aling="center"><a href="./maestro.pd" download="maestro.pd">Download do patch (.pd)</a></p>
 		
 	</div>
 	
 	<div id="cadaeco" align="right" style="margin-bottom: 60%;">
 		<h4><a href="https://ofefo.com.br/mus#cadaeco">#</a> cadaeco (2016), 24'</h4>
 		<a href="http://ofefo.bandcamp.com/album/cadaeco" target="_blank"><img class="bandcamp" src="./mus/cadaeco.jpg" align="left"/></a>
-		<p class="bandcamp"><i>Paisagens do caos e do aconchego<br>de uma caverna urbana</i>
+		<p id="cadaeco-text" class="bandcamp"><i>Paisagens do caos e do aconchego<br>de uma caverna urbana</i>
 			<br>
 			<br>Sobreposição de sons cotidianos e improvisos instrumentais. Com participação de Luís Israel em "chamada perdida".
 			<br>
@@ -245,9 +245,9 @@
 	<div id="quatrocordas" align="left" style="margin-bottom: 50%;">
 			<h4><a href="https://ofefo.com.br/mus#quatrocordas">#</a> quatrocordas (2015), 5'</h4>
 			<a href="http://ofefo.bandcamp.com/album/quatrocordas" target="_blank"><img class="bandcamp" src="./mus/quatrocordas.jpg" align="right"/></a>
-			<p class="bandcamp"><i>Quatro improvisos curtos com um violão <br>deficiente de duas cordas</i>
+			<p id="quatrocordas-text" class="bandcamp"><i>Quatro improvisos curtos com um violão <br>deficiente de duas cordas</i>
 			<br>
-			<br>Gravado com o microfone do pc.
+			<br>Gravado com o microfone do computador.
 			<br>Capa em aquarela sobre papel 
 			<br>e edição digital.
 			<br>Maio 2015
@@ -261,5 +261,6 @@
 			<img style="width:12px;height:12px;" src="./img/mini/cc3.png"></a>
 	</div>
 </div>
+<script src="./scripts/english_mus.js"></script>
 </body> 
 </html>

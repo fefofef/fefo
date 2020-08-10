@@ -163,28 +163,43 @@ a:active {color:  #ffffff;
 	text-decoration: none;
 } 
 
+/* English button */
+
+button[type=english] {
+	background-color: #ffb84d;
+	color: black;
+	border: none;
+}
+
+button[type=english]:hover {
+	opacity=0.8;
+}
+
 /*Email form*/
 
 input[type=text] {
-  width:30%;
-  padding: 1%;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+	width:30%;
+	padding: 1%;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
 }
 
 input[type=submit] {
-  width:15%;
-  padding: 1%;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+	width:15%;
+	padding: 1%;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	background-color: #ffb84d;
+	color: black;
+	border: none;
 }
 
 input[type=submit] {
-  background-color: #ffb84d;
-  color: black;
-  border: none;
+	background-color: #ffb84d;
+	color: black;
+	border: none;
 }
 
 input[type=submit]:hover {
