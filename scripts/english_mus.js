@@ -15,6 +15,6 @@ function English() {
 	document.getElementById("maestrandom-desc").innerHTML="<i>Musical instructions randomizer</i>";
 	document.getElementById("maestrandom-text").innerHTML="Thought for a performance with the ensemble <i>GILU</i>. Keywords are chosen in random time intervals, coordenating the improvisation with some level of unpredictability. At the same time, instrumental groups are chosen at each minute to execute those ideas. The keywords were suggested by the ensemble members.";
 	document.getElementById("maestrandom-patch").innerHTML="<a href=\"./maestro.pd\" download=\"maestro.pd\">Patch download (.pd)</a>";
-	document.getElementById("cadaeco-text").innerHTML="<i>Soundscapes of chaos and cosiness<br>of a urban cave</i><br><br>Superposition of everyday sounds and instrumental improvisations. Featuring Luís Israel in \"chamada perdida\".<br><br>Recorded with a smartphone.<br>Cover photo by Arthur Moreira.<br>July - December 2015";
+	document.getElementById("cadaeco-text").innerHTML="<i>Soundscapes of chaos and cosiness<br>at an urban cave</i><br><br>Superposition of everyday sounds and instrumental improvisations. Featuring Luís Israel in \"chamada perdida\".<br><br>Recorded with a smartphone.<br>Cover photo by Arthur Moreira.<br>July - December 2015";
 	document.getElementById("quatrocordas-text").innerHTML="<i>Four short improvisations with a guitar lacking two strings</i><br><br>Recorded with the computer microphone.<br>Cover in watercolor on paper<br>and digital editing.<br>May 2015";
 }
