@@ -22,11 +22,11 @@ div.inner {
 	flex-wrap: wrap;
 }
 
-#container > div {
-	display: inline;
-	margin: 3%;
-	width: 30%;
+#img-container > div {
 	justify-content: center;
+	display: inline;
+	padding: 1%;
+	width: 30%;
 }
 
 /* HEADINGS */
@@ -107,73 +107,82 @@ img.ver {
 
 /* mini fotos na horizontal */
 img.minihor {
-	width: 90%;
+	width: 100%;
 }
 
 /* mini fotos na vertical */
 img.miniver {
 	max-height: 240px;
-	width: 90%;
+	width: 100%;
 }
 
 img.minihor:hover {
 	box-shadow: 0 0 2px 1px;
 	color: #ff6e00;
-	width: 90%;
+	width: 100%;
 }
 
 /* mini fotos na vertical */
 img.miniver:hover {
 	box-shadow: 0 0 2px 1px;
 	color: #ff6e00;
-	width: 90%;
+	width: 100%;
 }
 
 /* borda demais imagens com link */
-img.link:hover {box-shadow: 0 0 2px 1px;
+img.link:hover {
+	box-shadow: 0 0 2px 1px;
 	color: #ff6e00;
 }
 
 /* borda do perfil da bio */
-img.bio {border-style: solid;
+img.bio {
+	border-style: solid;
 	border-width: 1px;
 	border-color: #ffffff;
 }
 
-img.redirect { width: 15px;
+img.redirect {
+	width: 15px;
 	height: 15px;
 }
 
 /* DIAGRAMAÇÃO */
 /* colunas e centro */
-div.meio {width: 60%;
+div.meio {
+	width: 60%;
 }
 
 /* canto */
-div.canto {width: 25%;
+div.canto {
+	width: 25%;
 }
 
 /* albuns fotograficos */
 
 /*div.fotografia {width: 100%}*/
 
-div.noite {float: left;
+div.noite {
+	float: left;
 	width: 1200px;
 }
 
 /* LINKS */
 /* link nao visitado*/
-a:link {color: #ffb84d;
+a:link {
+	color: #ffb84d;
 	text-decoration: none;
 }
 
 /* link visitado */
-a:visited {color: #ffb84d;
+a:visited {
+	color: #ffb84d;
 	text-decoration: none;
 }
 
 /* mouse sobre link */
-a:hover {color: #ff6e00;
+a:hover {
+	color: #ff6e00;
 	text-decoration: none;
 }
 
