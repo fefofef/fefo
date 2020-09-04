@@ -14,9 +14,20 @@ body {
 div.inner {
 	max-width: 782px;
 	width: 100%;
-	margin:0 auto;
+	margin: 0 auto;
 }
 
+#img-container{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#container > div {
+	display: inline;
+	margin: 3%;
+	width: 30%;
+	justify-content: center;
+}
 
 /* HEADINGS */
 
@@ -60,54 +71,62 @@ br {
 
 /* IMAGENS */
 /* perfil index */
-img.idx {width: 355px; /*355px*/
+img.idx {
+	width: 355px; /*355px*/
 	height: 388px; /*388px*/
 }
 
 /* capas bandcamp */
-img.bandcamp {width: 50%;
+img.bandcamp {
+	width: 50%;
 	height: 50%;
 }
 
-img.bandcamp:hover {box-shadow: 0 0 2px 1px;
+img.bandcamp:hover {
+	box-shadow: 0 0 2px 1px;
 	color: #ff6e00;
 }
 
 /*fotos do calendario*/
-img.datas {width: 80%;
+img.datas {
+	width: 80%;
 	height: 80%;
 }
 
 /* fotos na horizontal */
-img.hor {width: 100%;
+img.hor {
+	width: 100%;
 	height: 100%;
 }
 
 /* fotos na vertical */
-img.ver {width:324px;
+img.ver {
+	width:324px;
 	height:432px;
 }
 
 /* mini fotos na horizontal */
 img.minihor {
-	width: 30%;
+	width: 90%;
 }
 
 /* mini fotos na vertical */
 img.miniver {
 	max-height: 240px;
-	width: 30%;
+	width: 90%;
 }
 
-img.minihor:hover {box-shadow: 0 0 2px 1px;
+img.minihor:hover {
+	box-shadow: 0 0 2px 1px;
 	color: #ff6e00;
-	width: 30%;
+	width: 90%;
 }
 
 /* mini fotos na vertical */
-img.miniver:hover {box-shadow: 0 0 2px 1px;
+img.miniver:hover {
+	box-shadow: 0 0 2px 1px;
 	color: #ff6e00;
-	height: 1%;
+	width: 90%;
 }
 
 /* borda demais imagens com link */
