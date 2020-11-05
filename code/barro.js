@@ -1,8 +1,8 @@
 //const startButton = document.getElementById('start');
 //const stopButton = document.getElementById('stop');
 
-let width = windowWidth/5
-let height = windowHeight/5
+let width = window.innerWidth/5;
+let height = window.innerHeight/5;
 
 let fontsize = 60;
 
