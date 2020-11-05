@@ -7,7 +7,7 @@ let opensans,
 let texto="BARRO";
 
 function preload() {
-	let opensans = loadFont('OpenSans-Regular.ttf');
+	opensans = loadFont('OpenSans-Regular.ttf');
 }
 
 let array = [
@@ -81,7 +81,7 @@ function draw() {
 	let p = random(0, 1);
 	if (p > 0.9) {texto=array[r]} else {texto=texto};
 	background(32);
-	text(texto, 0, 0);  
+	text(texto);  
 }
 
 /*
