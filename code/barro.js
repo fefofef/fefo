@@ -1,14 +1,16 @@
 //const startButton = document.getElementById('start');
 //const stopButton = document.getElementById('stop');
 
-let opensans,
-	fontsize = 60;
+let opensans = loadFont('OpenSans-Regular.ttf');
+let fontsize = 60;
 
 let texto="BARRO";
 
+/*
 function preload() {
 	opensans = loadFont('OpenSans-Regular.ttf');
 }
+*/
 
 let array = [
     'Estropiar',
@@ -75,7 +77,6 @@ function setup() {
 }
 
 
-
 function draw() {
 	let r = floor(random(0, (array.length)));
 	let p = random(0, 1);
@@ -83,6 +84,7 @@ function draw() {
 	background(32);
 	text(texto);  
 }
+
 
 /*
  let mic, recorder, soundFile;
