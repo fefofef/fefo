@@ -1,6 +1,5 @@
 //const startButton = document.getElementById('start');
 //const stopButton = document.getElementById('stop');
-let canvas = createCanvas(500, 500);
 
 let opensans,
 	fontsize = 60;
@@ -64,6 +63,7 @@ function windowResized() {
 */
 
 function setup() {
+	let canvas = createCanvas(500, 500);
 	canvas.parent('canvas');
 
 	textFont(opensans);
