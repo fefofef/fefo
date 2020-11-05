@@ -64,11 +64,11 @@ function windowResized() {
 
 
 function setup() {
-	createCanvas(windowWidth, windowHeight);
+	createCanvas(500, 500);
 	canvas.parent('canvas');
 
 	textFont(opensans);
-	textSize(width / 3);
+	textSize(width / 10);
 	textAlign(CENTER, CENTER);
 	frameRate(1);
 	fill(255);
