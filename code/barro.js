@@ -1,7 +1,7 @@
 //const startButton = document.getElementById('start');
 //const stopButton = document.getElementById('stop');
 let opensans,
-	fotsize = width/3;
+	fontsize = 12;
 
 let texto="BARRO";
 
@@ -64,11 +64,11 @@ function windowResized() {
 
 
 function setup() {
-	createCanvas(500, 500);
+	let canvas = createCanvas(500, 500);
 	canvas.parent('canvas');
 
 	textFont(opensans);
-	textSize(width / 10);
+	textSize(fontsize);
 	textAlign(CENTER, CENTER);
 	frameRate(1);
 	fill(255);
