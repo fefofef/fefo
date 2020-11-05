@@ -1,6 +1,9 @@
 //const startButton = document.getElementById('start');
 //const stopButton = document.getElementById('stop');
 
+let width = windowWidth/5
+let height = windowHeight/5
+
 let fontsize = 60;
 
 let texto="BARRO";
@@ -62,7 +65,7 @@ function windowResized() {
 */
 
 function setup() {
-	let canvas = createCanvas(500, 500);
+	let canvas = createCanvas(width, height);
 	canvas.parent('canvas');
 
 	textFont(opensans);
@@ -79,7 +82,7 @@ function draw() {
 	let p = random(0, 1);
 	if (p > 0.9) {texto=array[r]} else {texto=texto};
 	background(32);
-	text(texto, width/2);  
+	text(texto, width/2, height/2);  
 }
 
 
