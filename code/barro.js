@@ -7,7 +7,7 @@ let opensans,
 let texto="BARRO";
 
 function preload() {
-	opensans = loadFont('OpenSans-Regular.ttf');
+	let opensans = loadFont('OpenSans-Regular.ttf');
 }
 
 let array = [
