@@ -1,4 +1,3 @@
-let start, stop;
 let width = window.innerWidth/2;
 let height = window.innerHeight/2;
 let fontsize = 60;
@@ -59,13 +58,6 @@ function setup() {
 	let canvas = createCanvas(width, height);
 	canvas.parent('canvas');
 	noLoop();
-
-	start = createButton("START");
-	stop = createButton("STOP");
-	start.mouseClicked(startSketch);
-	stop.mouseClicked(stopSketch);
-	start.position(width/2, height);
-	stop.position(width/2.2, height/10);
 }
 
 function startSketch() {
