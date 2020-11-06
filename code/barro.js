@@ -1,4 +1,4 @@
-const start, stop;
+let start, stop;
 let width = window.innerWidth*0.75;
 let height = window.innerHeight*0.75;
 let fontsize = 60;
