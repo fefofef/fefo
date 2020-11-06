@@ -2,7 +2,7 @@ let start, stop;
 let width = window.innerWidth/2;
 let height = window.innerHeight/2;
 let fontsize = 60;
-let texto="BARRO";
+let texto;
 
 function preload() {
 	opensans = loadFont('OpenSans-Regular.ttf');
@@ -56,14 +56,14 @@ let array = [
 
 
 function setup() {
+	let canvas = createCanvas(width, height);
+	canvas.parent('canvas');
+	noLoop();
+
 	start = createButton("START");
 	stop = createButton("STOP");
 	start.mouseClicked(startSketch);
 	stop.mouseClicked(stopSketch);
-
-	let canvas = createCanvas(width, height);
-	canvas.parent('canvas');
-	noLoop();	
 }
 
 function startSketch() {
@@ -79,7 +79,6 @@ function startSketch() {
 function stopSketch() {
 	//clear();
 	noLoop();
-	setup();
 }
 
 function draw() {
