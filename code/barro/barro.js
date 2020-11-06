@@ -63,7 +63,6 @@ function setup() {
 
 	let canvas = createCanvas(width, height);
 	canvas.parent('canvas');
-	noLoop();	
 }
 
 function startSketch() {
