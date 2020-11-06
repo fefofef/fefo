@@ -1,6 +1,6 @@
 let start, stop;
-let width = window.innerWidth*0.75;
-let height = window.innerHeight*0.75;
+let width = window.innerWidth/2;
+let height = window.innerHeight/2;
 let fontsize = 60;
 let texto="BARRO";
 
