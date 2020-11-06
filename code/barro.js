@@ -65,7 +65,7 @@ function setup() {
 	start.mouseClicked(startSketch);
 	stop.mouseClicked(stopSketch);
 	start.position(width/2, height);
-	stop.position(width/2, height);
+	stop.position(width/2.2, height/10);
 }
 
 function startSketch() {
