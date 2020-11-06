@@ -64,6 +64,8 @@ function setup() {
 	stop = createButton("STOP");
 	start.mouseClicked(startSketch);
 	stop.mouseClicked(stopSketch);
+	start.position(width/2, height);
+	stop.position(width/2, height);
 }
 
 function startSketch() {
