@@ -1,11 +1,7 @@
-//const startButton = document.getElementById('start');
-//const stopButton = document.getElementById('stop');
-
-let width = window.innerWidth/2;
-let height = window.innerHeight/2;
-
+const start, stop;
+let width = window.innerWidth*0.75;
+let height = window.innerHeight*0.75;
 let fontsize = 60;
-
 let texto="BARRO";
 
 function preload() {
@@ -58,24 +54,32 @@ let array = [
     'A altura do som é quase azul',
     'Barulinho vermelho'];
 
-/*
-function windowResized() {
-        resizeCanvas();  
-}
-*/
 
 function setup() {
+	start = createButton("START");
+	stop = createButton("STOP");
+	start.mouseClicked(startSketch);
+	stop.mouseClicked(stopSketch);
+
 	let canvas = createCanvas(width, height);
 	canvas.parent('canvas');
+}
 
+function startSketch() {
 	textFont(opensans);
 	textSize(fontsize);
 	textAlign(CENTER, CENTER);
 	frameRate(1);
 	fill(255);
 	noStroke();
+	loop()
 }
 
+function stopSketch() {
+	clear();
+	noLoop();
+	setup();
+}
 
 function draw() {
 	let r = floor(random(0, (array.length)));
@@ -85,6 +89,11 @@ function draw() {
 	text(texto, width/2, height/2);  
 }
 
+/*
+function windowResized() {
+        resizeCanvas();  
+}
+*/
 
 /*
  let mic, recorder, soundFile;
