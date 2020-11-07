@@ -3,9 +3,10 @@ let height = window.innerHeight/2;
 let fontsize = 60;
 let texto, time;
 let slider = document.getElementById('timeRange');
+let value = slider.value;
 let output = document.getElementById('prob');
-console.log(slider);
-output.innerHTML = slider.value;
+console.log(value);
+output.innerHTML = value;
 
 function preload() {
 	opensans = loadFont('OpenSans-Regular.ttf');
