@@ -2,8 +2,8 @@ let width = window.innerWidth/2;
 let height = window.innerHeight/2;
 let fontsize = 60;
 let texto, time;
-let slider = document.getElementById("timeRange");
-let output = document.getElementById("prob");
+let slider = document.getElementById('timeRange');
+let output = document.getElementById('prob');
 console.log(slider);
 output.innerHTML = slider.value;
 

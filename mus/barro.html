@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120358057-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-120358057-2');
-</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <meta charset="utf-8"/>
 <link rel="stylesheet" type="text/css" href="../style.css">
@@ -29,8 +21,8 @@
 	</div>	
 	
 	<nav>
-	  <h4><a href="../pd"><<<</a></h4>
-	</nav> 		
+	  <h4><a href="../mus"><<<</a></h4>
+		</nav>
 	<br>
 	
 	<div id="buttons">
@@ -40,11 +32,12 @@
 		<br>O slider altera a probabilidade de haver uma troca de sentença.
 		<br>Probabilidade: <span id="prob"></span>
 		<br>Clique em START para começar, e em STOP para parar.</p>
-	<input type="range" min="1" max="10" value="5" class="slider" id="timeRange">
-	<p>Probabilidade: <span id="prob"></span></p>
-	<br>
-	<button id="start" onClick="startSketch()">START</button>
-	<button id="stop" onClick="stopSketch()">STOP</button>
+		<br>
+		<input type="range" min="1" max="10" value="5" class="slider" id="timeRange">
+		<p>Probabilidade: <span id="prob"></span></p>
+		<br>
+		<button id="start" onClick="startSketch()">START</button>
+		<button id="stop" onClick="stopSketch()">STOP</button>
 	</div>
 
 	<div id="canvas">
