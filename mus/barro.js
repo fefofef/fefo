@@ -1,68 +1,23 @@
-let start, stop;
 let width = window.innerWidth/2;
 let height = window.innerHeight/2;
 let fontsize = 60;
-let texto="BARRO";
+let texto, time;
+let slider = document.getElementById("timeRange");
+let output = document.getElementById("prob");
+console.log(slider);
+output.innerHTML = slider.value;
 
 function preload() {
 	opensans = loadFont('OpenSans-Regular.ttf');
 }
 
-let array = [
-    'Estropiar',
-    'Comer do ínfimo',
-    'Prender o silêncio com fivela',
-    'Encolher o horizonte',
-    'Aveludar seu canto',
-    'Aumentar o silêncio',
-    'Procurar por lugar nenhum',
-    'Descomeçar',
-    'Escutar a cor dos passarinhos',
-    'Sofrer decomposição lírica',
-    'Deixar o mato sair na voz',
-    'Silêncio alto',
-    'O fim de um lugar',
-    'Avançar para o começo',
-    'Pegar no estame do som',
-    'Antíteses consagram',
-    'Expressão reta não sonha',
-    'Puxar o alarme do silêncio',
-    'Usar um deformante para a voz',
-    'Experimentar o gozo de criar',
-    'Silêncio que grita',
-    'Deslimitar',
-    'Fotografar o silêncio',
-    'Gorjeios',
-    'Ver o silêncio das formas',
-    'Ar em movimento',
-    'O tato é mais que o ver',
-    'O tato é mais que o ouvir',
-    'O silêncio do bezerro',
-    'Silêncio de chão',
-    'A gente queria o arpejo',
-    'Voz sem boca',
-    'Compôr silêncios',
-    'Amar os restos',
-    'O silêncio de onde acabas de voltar',
-    'Repetir até ficar diferente',
-    'Som que ainda não deu liga',
-    'Sua voz tem um som vegetal',
-    'O delírio é uma sensatez',
-    'Dar formato de canto à aspereza da pedra',
-    'Cantar sem interesse de informar',
-    'Aprender a harmonia dos gorjeios',
-    'A altura do som é quase azul',
-    'Barulinho vermelho'];
+let array = ['Estropiar', 'Comer do ínfimo', 'Prender o silêncio com fivela', 'Encolher o horizonte', 'Aveludar seu canto', 'Aumentar o silêncio', 'Procurar por lugar nenhum', 'Descomeçar', 'Escutar a cor dos passarinhos', 'Sofrer decomposição lírica', 'Deixar o mato sair na voz', 'Silêncio alto', 'O fim de um lugar', 'Avançar para o começo', 'Pegar no estame do som', 'Antíteses consagram', 'Expressão reta não sonha', 'Puxar o alarme do silêncio', 'Usar um deformante para a voz', 'Experimentar o gozo de criar', 'Silêncio que grita', 'Deslimitar', 'Fotografar o silêncio', 'Gorjeios', 'Ver o silêncio das formas', 'Ar em movimento', 'O tato é mais que o ver', 'O tato é mais que o ouvir', 'O silêncio do bezerro', 'Silêncio de chão', 'A gente queria o arpejo', 'Voz sem boca', 'Compôr silêncios', 'Amar os restos', 'O silêncio de onde acabas de voltar', 'Repetir até ficar diferente', 'Som que ainda não deu liga', 'Sua voz tem um som vegetal', 'O delírio é uma sensatez', 'Dar formato de canto à aspereza da pedra', 'Cantar sem interesse de informar', 'Aprender a harmonia dos gorjeios', 'A altura do som é quase azul', 'Barulinho vermelho'];
 
 
 function setup() {
-	start = createButton("START");
-	stop = createButton("STOP");
-	start.mouseClicked(startSketch);
-	stop.mouseClicked(stopSketch);
-
 	let canvas = createCanvas(width, height);
 	canvas.parent('canvas');
+	noLoop();
 }
 
 function startSketch() {
@@ -76,15 +31,19 @@ function startSketch() {
 }
 
 function stopSketch() {
-	//clear();
+	text("BARRO");
 	noLoop();
-	setup();
+}
+
+slider.oninput = function() {
+	time = this.value * 0.016;
+	output.innerHTML = this.value;
 }
 
 function draw() {
 	let r = floor(random(0, (array.length)));
 	let p = random(0, 1);
-	if (p > 0.9) {texto=array[r]} else {texto=texto};
+	if (p > 10-time) {texto=array[r]} else {texto=texto};
 	background(32);
 	text(texto, width/2, height/2);  
 }

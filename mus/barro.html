@@ -13,9 +13,7 @@
 <meta charset="utf-8"/>
 <link rel="stylesheet" type="text/css" href="../style.css">
 
-<script src="../p5/p5.js"></script>
-<script src="../p5/p5.dom.js"></script>
-<script src="../p5/p5.sound.js"></script>
+<script src="../p5/p5.min.js"></script>
 <script src="../p5/addons/p5.sound.min.js"></script>
 <script src="./barro.js" charset="utf-8"></script>
  <title>fefo . code . BARRO</title> 
@@ -38,8 +36,13 @@
 	<div id="buttons">
 		<h4>BARRO</h4>
 		<p>Sorteador de versos de Manoel de Barros para improvisação.
-			<br>
+		<br>
+		<br>O slider altera a probabilidade de haver uma troca de sentença.
+		<br>Probabilidade: <span id="prob"></span>
 		<br>Clique em START para começar, e em STOP para parar.</p>
+	<input type="range" min="1" max="10" value="5" class="slider" id="timeRange">
+	<p>Probabilidade: <span id="prob"></span></p>
+	<br>
 	<button id="start" onClick="startSketch()">START</button>
 	<button id="stop" onClick="stopSketch()">STOP</button>
 	</div>
