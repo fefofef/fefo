@@ -42,7 +42,7 @@ slider.oninput = function() {
 function draw() {
 	let r = floor(random(0, (array.length)));
 	let p = random(0, 1);
-	if (p > time) {texto=array[r]} else {texto=texto};
+	if (p > 0.9) {texto=array[r]} else {texto=texto};
 	background(32);
 	text(texto, width/2, height/2);  
 }
