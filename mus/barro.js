@@ -5,8 +5,6 @@ let texto, time;
 let slider = document.getElementById('timeRange');
 let value = slider.value;
 let output = document.getElementById('prob');
-console.log(value);
-output.innerHTML = value;
 
 function preload() {
 	opensans = loadFont('OpenSans-Regular.ttf');
@@ -38,13 +36,13 @@ function stopSketch() {
 
 slider.oninput = function() {
 	time = this.value * 0.016;
-	output.innerHTML = this.value;
+	output.innerHTML = time;
 }
 
 function draw() {
 	let r = floor(random(0, (array.length)));
 	let p = random(0, 1);
-	if (p > 10-time) {texto=array[r]} else {texto=texto};
+	if (p > time) {texto=array[r]} else {texto=texto};
 	background(32);
 	text(texto, width/2, height/2);  
 }
