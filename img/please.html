@@ -4,8 +4,41 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <meta charset="utf-8"/>  
-	<title>fefo . img . Please</title>   
-	<link rel="stylesheet" type="text/css" href="./please.css">
+<title>fefo . img . Please</title>   
+<link rel="stylesheet" type="text/css" href="../style.css">
+<style>
+div.container {
+        position: relative;
+}
+
+div.please {
+        display: inline;
+}
+
+div.overlay {
+        position: absolute;
+        top: 0%;
+        bottom: 0%;
+        left: 0%;
+        right: 0%;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: .5s ease;
+}
+div.container:hover .overlay {
+        opacity: 1;
+}
+
+div.span {
+        font-size:100px;
+        position: absolute;
+        top: 50%;
+        left: 28%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+}
+</style>
 </head> 
 
 <body> 
