@@ -4,14 +4,22 @@
         <meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="date" content="2021-02-22" scheme="YYYY-MM-DD">
-        <title>oficina</title>
         <link rel="stylesheet" href="../style.css" type="text/css"
-         media="screen" title="no title" charset="utf-8">
+         media="screen" charset="utf-8">
+	<title>Software livre na educação</title>
+	<script charset="utf-8">
+	function show(shown, hidden) {
+      document.getElementById(shown).style.display='block';
+      document.getElementById(hidden).style.display='none';
+      return false;
+    }
+	</script>
     </head>
     <body>
 
 <h1>Laboratório de Práticas pedagógicas</h1>
 <h2>Micro-oficina: a importância do software livre para a educação</h2>
+<div id="Page1">
 <h2>O que é software livre?</h2>
 <ul>
 <li>Software livre é o software que concede liberdade ao usuário para executar, acessar e modificar o 
@@ -22,6 +30,14 @@ código fonte, e redistribuir cópias com ou sem modificações.<br/><br/></li>
 <li>Software livre também não é equaivalente a software <em>gratuito</em>, porque este não necessariamente 
   garante as mesmas liberdades de uso ao utilizador.<br/><br/></li>
 </ul>
+<br/>
+<nav>
+	<b>
+		<a href="#" onclick="return show('Page2','Page1');">>>></a>&nbsp;
+	</b>
+</nav>
+</div>
+<div id="Page2" style="display: none">
 <h2>Por que software livre?</h2>
 <ul>
 <li>Esmagadoramente, estudantes estão sendo obrigados a usar em sala de aula ferramentas que são 
@@ -44,9 +60,15 @@ código fonte, e redistribuir cópias com ou sem modificações.<br/><br/></li>
 </ul>
 <footer>1: Traduzido de <a href="https://my.fsf.org/give-students-userfreedom">https://my.fsf.org/give-students-userfreedom</a></footer>
 <footer>2: Traduzido de <a href="https://www.fsf.org/about/what-is-free-software">https://www.fsf.org/about/what-is-free-software</a></footer>
-<p><br/>
 <br/>
-<br/></p>
+<nav>
+	<b>
+		<a href="#" onclick="return show('Page1','Page2');"><<<</a>&nbsp;
+		<a href="#" onclick="return show('Page3','Page2');">>>></a>
+	</b>
+</nav>
+</div>
+<div id="Page3" style="display: none">
 <h2>Software Livre no contexto EAD</h2>
 <h3>Vídeo-conferência</h3>
 <ul>
@@ -61,9 +83,15 @@ código fonte, e redistribuir cópias com ou sem modificações.<br/><br/></li>
 <ul>
 <li>Blender <a href="https://www.blender.org/">https://www.blender.org/</a></li>
 </ul>
-<p><br/>
 <br/>
-<br/></p>
+<nav>
+	<b>
+		<a href="#" onclick="return show('Page2','Page3');"><<<</a>&nbsp;
+		<a href="#" onclick="return show('Page4','Page3');">>>></a>
+	</b>
+</nav>
+</div>
+<div id="Page4" style="display: none">
 <h2>Software livre no contexto musical</h2>
 <h3>Treinamento auditivo</h3>
 <ul>
@@ -79,6 +107,15 @@ código fonte, e redistribuir cópias com ou sem modificações.<br/><br/></li>
 <li>Lilypond <a href="https://lilypond.org/">https://lilypond.org/</a></li>
 <li>MuseScore <a href="https://musescore.org/">https://musescore.org/</a></li>
 </ul>
-
+<br/>
+<nav>
+	<b>
+	<a href="#" onclick="return show('Page3','Page4');"><<<</a>&nbsp;
+	</b>
+</nav>
+</div>
+	<footer>
+        <p style="font-size:small">Felippe Brandão</p>
+        </footer>
     </body>
 </html>
