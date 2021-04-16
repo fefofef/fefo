@@ -5,74 +5,99 @@
 		<link>https://ofefo.com.br/</link>
 		<description>Personal website and artistic portfolio</description>
 
+		<!-- LB -->
+
 		<item>
-			<title>15/10/2020: sonorização e trilha para vinheta do Dia Mundial da Alimentação 2020 FSP-USP</title>
+			<title>não-igual no Frestas Telúricas #5</title>
+			<link>https://www.youtube.com/channel/UCBpZd3d8kFVOZ6LyVaSDhZQ</link>
+			<description>Tocando PING com Caio Campos a 500km de distância em tempo real.</description>
+			<pubDate>2020-10-20</pubDate>
+		</item>
+
+		<item>
+			<title>sonorização e trilha para vinheta do Dia Mundial da Alimentação 2020 FSP-USP</title>
 			<link>https://www.youtube.com/watch?v=ZY9y0ZLNL9c</link>
-			<description></description>
+			<description>Animação por Constantin de Tugny.</description>
 			<pubDate>2020-10-15</pubDate>
 		</item>
 
 		<item>
-			<title>19/10/2020: não≠igual live at FRESTAS TELÚRICAS #5.</title>
+			<title>não≠igual live no FRESTAS TELÚRICAS #5</title>
 			<link>https://www.youtube.com/channel/UCBpZd3d8kFVOZ6LyVaSDhZQ</link>
 			<description>Tocando PING com Caio Campos a 500km de distância.</description>
 			<pubDate>2020-10-19</pubDate>
 		</item>
 
 		<item>
-			<title>02/08/2020: release da primeira versão (beta) do welcomeBach.</title>
+			<title>release do projeto welcomeBach</title>
 			<link>https://ofefo.com.br/mus#welcomebach</link>
 			<description>Script python para possibilitar uma escuta consistente do repertório de compositores</description>
 			<pubDate>2020-08-02</pubDate>
 		</item>
 
 		<item>
-			<title>09/05/2020: som para o curta 11th plague of Egypt de Constantin de Tugny.</title>
+			<title>colaboração para a live da peça Mor Morning, de Henrique Iwao</title>
+			<link>https://www.youtube.com/watch?v=fkmpk1Gw6HU</link>
+			<description>Com transmissão ao vivo via Frestas Telúricas no Youtube</description>
+			<pubDate>2020-07-03</pubDate>
+		</item>
+
+		<item>
+			<title>som para o curta 11th plague of Egypt</title>
 			<link>https://vimeo.com/416767495</link>
-			<description></description>
+			<description>Animação por Constantin de Tugny.</description>
+			<pubDate>2020-05-09</pubDate>
 		</item>
 		
 		<item>
-			<title>02/03/2020: release digital da peça acusmática emersão</title>
+			<title>release digital da peça acusmática emersão</title>
 			<link>https://ofefo.com.br/mus#emersao</link>
 			<description>À medida em que se chega mais perto da superfície, mergulhadores escutam sons se transmutando...</description>
+			<pubDate>2020-03-02</pubDate>
 		</item>
 		
 		<item>
-			<title>15/02/2020: JAM de contato improvisação com TaTo na FUNARTE-MG.</title>
+			<title>JAM de contato improvisação com TaTo na FUNARTE-MG</title>
 			<description>Tocando com Francisco César e Rafael Paulino</description>
+			<pubDate>2020-02-15</pubDate>
 		</item>
 		
 		<item>
-			<title>07/12/2019: JAM de contato improvisação com TaTo e GILU na FUNARTE-MG.</title>
+			<title>JAM de contato improvisação com TaTo e GILU na FUNARTE-MG</title>
 			<description></description>
+			<pubDate>2019-12-07</pubDate>
 		</item>
 		
 		<item>
-			<title>26/11/2019: PING na 34ª MOCÓ, no Conservatório da UFMG.</title>
+			<title>PING na 34ª MOCÓ, no Conservatório da UFMG</title>
 			<link>https://ofefo.com.br/mus#ping</link>
 			<description>Jogando contra Caio Campos</description>
+			<pubDate>2019-11-26</pubDate>
 		</item>
 		
 		<item>
-			<title>23/11/2019: não-igual (≠) no festival Gobierno No!, no Saramandaia.</title>
+			<title>não-igual (≠) no festival Gobierno No!, no Saramandaia</title>
 			<description>Produzindo quantidades imensas de ruído com Caio Campos</description>
+			<pubDate>2019-11-23</pubDate>
 		</item>
 		
 		<item>
-			<title>21/11/2019: improvisação livre com o GILU na Casa Híbrido.</title>
+			<title>improvisação livre com o GILU na Casa Híbrido</title>
 			<description></description>
+			<pubDate>2019-11-21</pubDate>
 		</item>
 		
 		<item>
-			<title>06/11/2019: participação na 1ª edição do FIM: Festival Improvisada Música, com o GILU.</title>
+			<title>participação na 1ª edição do FIM: Festival Improvisada Música, com o GILU.</title>
 			<link>https://ofefo.com.br/mus#agora</link>
 			<description>Interpretando e improvisando sem escrúpulos</description>
+			<pubDate>2019-11-06</pubDate>
 		</item>
 		
 		<item>
-			<title>09/11/2019: JAM de contato improvisação com TaTo e GILU na FUNARTE-MG.</title>
+			<title>JAM de contato improvisação com TaTo e GILU na FUNARTE-MG.</title>
 			<description></description>
+			<pubDate>2019-11-09></pubDate>
 		</item>
 		
 		<item>
@@ -216,39 +241,6 @@
 		<item>
 			<title>17/08/2017: co-masterização do álbum Espumas da Robs Schulze.</title>
 			<link>https://robsschulze.bandcamp.com/album/espumas</link>
-			<description></description>
-		</item>
-
-		<item>
-			<title>2016: improviso coletivo aberto com o DRAUZIUS na semana cultural do IGC-UFMG.</title>
-			<description></description>
-		</item>
-
-		<item>
-			<title>2016: release digital do álbum cadaeco</title>
-			<link>https://ofefo.com.br/mus#cadaeco</link>
-			<description></description>
-		</item>
-
-		<item>
-			<title>2016: improviso coletivo aberto com o DRAUZIUS na EAD-UFMG.</title>
-			<description></description>
-		</item>
-
-		<item>
-			<title>2015: release digital do álbum quatrocordas.</title>
-			<link>https://ofefo.com.br/mus#quatrocordas</link>
-			<description></description>
-		</item>
-
-		<item>
-			<title>2015: participação no álbum FANK, do Tomodachi.</title>
-			<link>https://tmdch.bandcamp.com/album/fank.</link>
-			<description></description>
-		</item>
-
-		<item>
-			<title>2014: apresentação da dupla Tartaruga Cúbica na semana cultural da FDCE-UFMG.</title>
 			<description></description>
 		</item>
 	</channel>
