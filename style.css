@@ -17,6 +17,10 @@ div.inner {
 	margin: 0 auto;
 }
 
+div.bar {
+	width: 50%;
+}
+
 #img-container{
 	display: flex;
 	flex-wrap: wrap;
@@ -144,6 +148,11 @@ img.bio {
 img.redirect {
 	width: 15px;
 	height: 15px;
+}
+
+img.cc {
+	width:10%; 
+	height:10%;
 }
 
 /* DIAGRAMAÇÃO */
