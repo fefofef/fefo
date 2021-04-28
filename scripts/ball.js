@@ -3,6 +3,7 @@ var y = 100;
 var acc1 = 20;
 var acc2 = 20;
 var c;
+let monoSynth;
 
 function windowResized() {
 	resizeCanvas()	
@@ -20,6 +21,7 @@ function setup(){
 	x = random(0, windowWidth);
 	y = random(0, windowHeight);
 
+	monoSynth = new p5.MonoSynth();
 
 	//pos = createVector(random(windowWidth), random(windowHeight));
 	//prev = pos.copy();
@@ -56,8 +58,4 @@ function draw() {
 
 	x = x + acc1;
 	y = y + acc2;
-}
-
-function mouseDragged(){
-  paintBuffer.ellipse(mouseX, mouseY, brushSize);
 }
