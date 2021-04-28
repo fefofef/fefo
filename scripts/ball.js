@@ -1,9 +1,12 @@
 var x = 100;
 var y = 100;
-var acc1 = 20;
-var acc2 = 20;
+var acc1 = 10;
+var acc2 = 10;
 var c;
 let monoSynth;
+let midiNotes = [60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82];
+let noteIndex = 0;
+let midiVal, freq;
 
 function windowResized() {
 	resizeCanvas()	
@@ -15,13 +18,13 @@ function setup(){
 	canvas.style('z-index', '-1');
 	frameRate(24);
 	
-	b = 0;
 	c = color(255, 184, 77);
 
 	x = random(0, windowWidth);
 	y = random(0, windowHeight);
 
-	monoSynth = new p5.MonoSynth();
+	osc = new p5.TriOsc();
+	env = new p5.Envelope();
 
 	//pos = createVector(random(windowWidth), random(windowHeight));
 	//prev = pos.copy();
@@ -44,18 +47,34 @@ function draw() {
 
 	if (x > windowWidth) {
 		acc1 = -10;
+		startSound();
 	}
 	else if (x < 0) {
 		acc1 = 10;		
+		startSound();
 	}
 
 	if (y > windowHeight) {
 		acc2 = -10;
+		startSound();
 	}
 	else if (y < 0) {
 		acc2 = 10;		
+		startSound();
 	}
 
 	x = x + acc1;
 	y = y + acc2;
+}
+
+function startSound() {
+  // see also: userStartAudio();
+  osc.start();
+
+  midiVal = midiNotes[noteIndex % midiNotes.length];
+  freq = midiToFreq(midiVal);
+  osc.freq(freq);
+  env.ramp(osc, 0, 1.0, 0);
+
+  noteIndex++;
 }
