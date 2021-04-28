@@ -68,13 +68,10 @@ function draw() {
 }
 
 function startSound() {
-  // see also: userStartAudio();
-  osc.start();
-
-  midiVal = midiNotes[noteIndex % midiNotes.length];
-  freq = midiToFreq(midiVal);
-  osc.freq(freq);
-  env.ramp(osc, 0, 1.0, 0);
-
-  noteIndex++;
+	osc.start();  
+	noteIndex = random(0, 11);
+	midiVal = midiNotes[noteIndex % midiNotes.length];
+	freq = midiToFreq(midiVal);
+	osc.freq(freq);
+	env.ramp(osc, 0, 1.0, 0);
 }
