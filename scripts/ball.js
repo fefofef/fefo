@@ -19,14 +19,10 @@ function setup(){
 	frameRate(24);
 	
 	c = color(255, 184, 77);
-
 	x = random(0, windowWidth);
 	y = random(0, windowHeight);
-
 	osc = new p5.TriOsc();
 	env = new p5.Envelope();
-
-
 	scaleChoice = random([scale1, scale2]);
 	startSound(note, scaleChoice);
 }
@@ -37,15 +33,11 @@ function windowResized() {
 
 function draw() {
 	background(32);
-	ellipse(x, y, 100,100);
+	ellipse(x, y, random(0, 100), random(0, 100));
 	stroke(c);
-
-	size = random(0, 3);
 	strokeWeight(1);
-	fill(color(255 - random(0, 10), 184, 77));
+	fill(32);
 	
-	r1 = random(0, 500);
-
 	if (x > windowWidth) {
 		acc1 = -10;
 		note = int(random(0, 11));
@@ -70,7 +62,6 @@ function draw() {
 
 	x = x + acc1;
 	y = y + acc2;
-	print(note);
 }
 
 function startSound(note, scaleChoice) {
