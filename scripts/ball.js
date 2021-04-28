@@ -25,9 +25,6 @@ function setup(){
 
 	osc = new p5.TriOsc();
 	env = new p5.Envelope();
-
-	//pos = createVector(random(windowWidth), random(windowHeight));
-	//prev = pos.copy();
 }
 
 function windowResized() {
