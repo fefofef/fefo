@@ -4,7 +4,8 @@ var acc2 = 10;
 let scale1 = [60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82];
 let scale2 = [61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83];
 let noteIndex = 0;
-let midiVal, freq, note, scaleChoice, ball;
+let midiVal, freq, note, scaleChoice;
+let balls = [];
 let WIDTH = 100;
 let HEIGHT = 100;
 
@@ -18,36 +19,35 @@ function setup(){
 	canvas.style('z-index', '-1');
 	frameRate(24);
 	
-	c = color(255, 184, 77);
-	x = random(windowWidth);
-	y = random(windowHeight);
 	osc = new p5.TriOsc();
 	env = new p5.Envelope();
 	scaleChoice = random([scale1, scale2]);
 	startSound(note, scaleChoice);
 
-	ball = new Ball;
+	balls.push(new Ball);
 }
 
 function windowResized() {
 	resizeCanvas(windowWidth, windowHeight);
 }
 
+function mousePressed(){
+	balls.push(new Ball);
+}
+
 function draw() {
 	background(32);
 
-	// for (let i = 0; let i < nb; let i++) {
-	// 	ball[i].move();
-	// 	ball[i].show();
-	// }
-	ball.move();
-	ball.show();
+	for (let i = 0; i < balls.lenght; i++) {
+		balls[i].move();
+		balls[i].show();
+	}
 }
 
 class Ball {
 	constructor() {
-		this.x = random(windowWidth);
-		this.y = random(windowHeight);		
+		this.x = random(0, windowWidth);
+		this.y = random(0, windowHeight);		
 	}
 
 	move() {
@@ -76,10 +76,11 @@ class Ball {
 	}
 	
 	show() {
+		var c = color(255, 184, 77);
 		stroke(c);
 		strokeWeight(1);
-		fill(32);
-		ellipse(ball.x, ball.y, WIDTH, HEIGHT);
+		fill(c);
+		ellipse(this.x, this.y, WIDTH, HEIGHT);
 	}
 }
 
