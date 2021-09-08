@@ -211,6 +211,11 @@ button[type=english]:hover {
 	opacity=0.8;
 }
 
+/* Audio player */
+audio.player{ 
+	width: 100%;
+}
+
 /*Email form*/
 
 input[type=text] {
