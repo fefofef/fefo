@@ -199,7 +199,17 @@ a:active {color:  #ffffff;
 	text-decoration: none;
 } 
 
-/* English button */
+/* Buttons */
+
+button.barro {    
+        background-color: #ffb84d;    
+        color: black;     
+        border: none;               
+        display: inline-block;             
+        font-size: 20px;                   
+        text-align: center;                
+        cursor: pointer;                   
+}
 
 button[type=english] {
 	background-color: #ffb84d;

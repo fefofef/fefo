@@ -58,7 +58,7 @@ function init() {
     const startButton = document.getElementById('start');
     const stopButton = document.getElementById('stop');
 	var who_timer;
-    var what_timer;
+	var what_timer;
     
     startButton.onclick = function() {
         randomwhat();
