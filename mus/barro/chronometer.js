@@ -1,11 +1,8 @@
-// frases
+// Frases
 
 var what;
 
 let frases = ['Estropiar', 'Comer do ínfimo', 'Prender o silêncio com fivela', 'Encolher o horizonte', 'Aveludar seu canto', 'Aumentar o silêncio', 'Procurar por lugar nenhum', 'Descomeçar', 'Escutar a cor dos passarinhos', 'Sofrer decomposição lírica', 'Deixar o mato sair na voz', 'Silêncio alto', 'O fim de um lugar', 'Avançar para o começo', 'Pegar no estame do som', 'Antíteses consagram', 'Expressão reta não sonha', 'Puxar o alarme do silêncio', 'Usar um deformante para a voz', 'Experimentar o gozo de criar', 'Silêncio que grita', 'Deslimitar', 'Fotografar o silêncio', 'Gorjeios', 'Ver o silêncio das formas', 'Ar em movimento', 'O tato é mais que o ver', 'O tato é mais que o ouvir', 'O silêncio do bezerro', 'Silêncio de chão', 'A gente queria o arpejo', 'Voz sem boca', 'Compôr silêncios', 'Amar os restos', 'O silêncio de onde acabas de voltar', 'Repetir até ficar diferente', 'Som que ainda não deu liga', 'Sua voz tem um som vegetal', 'O delírio é uma sensatez', 'Dar formato de canto à aspereza da pedra', 'Cantar sem interesse de informar', 'Aprender a harmonia dos gorjeios', 'A altura do som é quase azul', 'Barulinho vermelho'];
-
-function new_random() {     
-}
 
 // Add event listeners to buttons
 window.addEventListener("load", function() {
@@ -62,20 +59,6 @@ function startTime() {
 	sTime = new Date().getTime();
 	clearInterval(intervalId);
 	intervalId = setInterval(displayTime, 72);
-
-	what = frases[Math.floor(Math.random() * frases.length)];    
-	document.getElementById('what').innerHTML = what;
-
-	if(isStarted == false)
-		return;
-      	elapsedTime += getDeltaTime();
-	var timeArr = getTimeAsString(elapsedTime);
-
-  // I did a little hack here. after lap#999
-  // format would be broken.
-  document.getElementById('laps').innerHTML =
-  "<pre>#" + (++lapCount) + ((lapCount < 100) ? "\t    " : "    ") + timeArr[0] +
-  " - " + what + "</pre>" + document.getElementById('laps').innerHTML;
 }
 
 function stopTime() {
@@ -86,10 +69,11 @@ function stopTime() {
 }
 
 function resetTime() {
-  clearInterval(intervalId);
-  isStarted = false;
-  elapsedTime = 0;
-  lapCount = 0;
+	clearInterval(intervalId);
+	isStarted = false;
+	elapsedTime = 0;
+	lapCount = 0;
+	startCount = 0;
 
   document.getElementById('what').innerHTML = "(...)";
   document.getElementById('time').innerHTML = "00:00:00";
@@ -107,15 +91,15 @@ function resetTime() {
 
 // Record lap times
 function recordLapTime() {
+	if(isStarted == false)
+		return;
+
+	elapsedTime += getDeltaTime();
+	var timeArr = getTimeAsString(elapsedTime);
+	sTime = new Date().getTime();
+
 	what = frases[Math.floor(Math.random() * frases.length)];    
 	document.getElementById('what').innerHTML = what;
-
-  if(isStarted == false)
-    return;
-      
-  elapsedTime += getDeltaTime();
-  var timeArr = getTimeAsString(elapsedTime);
-  sTime = new Date().getTime();
 
   // I did a little hack here. after lap#999
   // format would be broken.
@@ -144,7 +128,7 @@ function displayTime() {
   var timeArr = getTimeAsString(delta);
 
   document.getElementById('time').innerHTML = timeArr[0];
-  document.getElementById('millisec').innerHTML = timeArr[1];
+  //document.getElementById('millisec').innerHTML = timeArr[1];
 }
 
 // Get time in milliseconds and return as
