@@ -17,6 +17,13 @@ div.inner {
 	margin: 0 auto;
 }
 
+div.p5 {
+    padding: 0;
+    margin: auto;
+    display: block;
+    width: 800px;
+}
+
 div.bar {
 	width: 50%;
 }
