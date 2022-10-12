@@ -1,12 +1,11 @@
-var x, y, c;
-var acc1 = 10;
-var acc2 = 10;
+var x, y, c, acc1, acc2;
 
 let balls = [];
 
 let scale1 = [60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82];
 let scale2 = [61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83];
 let noteIndex = 0;
+
 let midiVal, freq, note, scaleChoice, ball;
 let WIDTH = 100;
 let HEIGHT = 100;
@@ -51,17 +50,17 @@ function draw() {
 }
 
 function mousePressed () {
-	let ball = new Ball(mouseX, mouseY, acc1, acc2);
+	let ball = new Ball(mouseX, mouseY);
 	balls.push(ball);
 	print(balls)
 };
 
 class Ball {
-	constructor(x, y, acc1, acc2) {
+	constructor(x, y) {
 		this.x = x;
 		this.y = y;
-		this.acc1 = acc1;
-		this.acc2 = acc2;
+		this.acc1 = random(-10, 10);
+		this.acc2 = random(-10, 10);
 	}
 
 	move() {
