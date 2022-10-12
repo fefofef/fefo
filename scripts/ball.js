@@ -21,9 +21,7 @@ function setup(){
 	canvas.style('z-index', '-1');
 	frameRate(24);
 	
-	c = color(255, 184, 77);
-	x = random(windowWidth);
-	y = random(windowHeight);
+
 	osc = new p5.TriOsc();
 	env = new p5.Envelope();
 	scaleChoice = random([scale1, scale2]);
@@ -52,7 +50,6 @@ function draw() {
 function mousePressed () {
 	let ball = new Ball(mouseX, mouseY);
 	balls.push(ball);
-	print(balls)
 };
 
 class Ball {
@@ -61,11 +58,12 @@ class Ball {
 		this.y = y;
 		this.acc1 = random(-10, 10);
 		this.acc2 = random(-10, 10);
+		this.c = color(255, random(184), random(77));
 	}
 
 	move() {
 		if (this.x > windowWidth) {
-			this.acc1 = -10;
+			this.acc1 = random(10)*-1;
 			note = int(random(0, 11));
 			startSound(note, scaleChoice);
 		}
@@ -75,12 +73,12 @@ class Ball {
 			startSound(note, scaleChoice);
 		}
 		if (this.y > windowHeight) {
-			this.acc2 = -10;
+			this.acc2 = random(10)*-1;
 			note = int(random(0, 11));
 			startSound(note, scaleChoice);
 		}
 		else if (this.y < 0) {
-			this.acc2 = 10;		
+			this.acc2 = random(10);		
 			note = int(random(0, 11));
 			startSound(note, scaleChoice);
 		}
@@ -90,8 +88,8 @@ class Ball {
 	
 	
 	show() {
-		stroke(c);
-		strokeWeight(1);
+		stroke(this.c);
+		strokeWeight(2);
 		fill(32);
 		ellipse(this.x, this.y, WIDTH, HEIGHT);
 	}
