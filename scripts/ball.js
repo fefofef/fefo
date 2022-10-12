@@ -1,12 +1,16 @@
 var x, y, c;
 var acc1 = 10;
 var acc2 = 10;
+
+let balls = [];
+
 let scale1 = [60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82];
 let scale2 = [61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83];
 let noteIndex = 0;
 let midiVal, freq, note, scaleChoice, ball;
 let WIDTH = 100;
 let HEIGHT = 100;
+
 
 function windowResized() {
 	resizeCanvas()	
@@ -25,8 +29,7 @@ function setup(){
 	env = new p5.Envelope();
 	scaleChoice = random([scale1, scale2]);
 	startSound(note, scaleChoice);
-
-	ball = new Ball;
+	
 }
 
 function windowResized() {
@@ -36,50 +39,62 @@ function windowResized() {
 function draw() {
 	background(32);
 
-	// for (let i = 0; let i < nb; let i++) {
-	// 	ball[i].move();
-	// 	ball[i].show();
-	// }
-	ball.move();
-	ball.show();
+	for (let ball of balls) {
+		ball.move();
+		ball.show();
+	}
+	
+	for (let i = 0; i < balls.length; i++) {
+		balls[i].move();
+		balls[i].show();
+	}
 }
 
+function mousePressed () {
+	let ball = new Ball(mouseX, mouseY, acc1, acc2);
+	balls.push(ball);
+	print(balls)
+};
+
 class Ball {
-	constructor() {
-		this.x = random(windowWidth);
-		this.y = random(windowHeight);		
+	constructor(x, y, acc1, acc2) {
+		this.x = x;
+		this.y = y;
+		this.acc1 = acc1;
+		this.acc2 = acc2;
 	}
 
 	move() {
 		if (this.x > windowWidth) {
-			acc1 = -10;
+			this.acc1 = -10;
 			note = int(random(0, 11));
 			startSound(note, scaleChoice);
 		}
 		else if (this.x < 0) {
-			acc1 = 10;		
+			this.acc1 = 10;		
 			note = int(random(0, 11));
 			startSound(note, scaleChoice);
 		}
 		if (this.y > windowHeight) {
-			acc2 = -10;
+			this.acc2 = -10;
 			note = int(random(0, 11));
 			startSound(note, scaleChoice);
 		}
 		else if (this.y < 0) {
-			acc2 = 10;		
+			this.acc2 = 10;		
 			note = int(random(0, 11));
 			startSound(note, scaleChoice);
 		}
-		this.x = this.x + acc1;
-		this.y = this.y + acc2;
+		this.x = this.x + this.acc1;
+		this.y = this.y + this.acc2;
 	}
+	
 	
 	show() {
 		stroke(c);
 		strokeWeight(1);
 		fill(32);
-		ellipse(ball.x, ball.y, WIDTH, HEIGHT);
+		ellipse(this.x, this.y, WIDTH, HEIGHT);
 	}
 }
 
