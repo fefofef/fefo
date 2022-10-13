@@ -1,48 +1,79 @@
-let ballSize = 50;
-let ballX = Math.random()*800;
-let ballY = Math.random()*800;
 let width = 800;
 let height = 800;
-let ballxSpeed = 1;
-let ballySpeed = 1;
-var ballColors = [Math.random()*255,Math.random()*255,Math.random()*255];
 
-function setup() {
+var x, y, acc1, acc2; //ball propierties
+
+let balls = [];
+
+function setup(){
 	let renderer = createCanvas(width, height);
 	renderer.parent("canvas-container");
-}
+	
+	background(100);
 
-class Ball {
-	constructor() {
-	}
-}
+	frameRate(24);
 
-function drawEllipse(x, y) {
-	stroke(255);
-	strokeWeight(1);
-	fill(ballColors);
-	ellipse(x, y, 50);
 }
-
 
 function draw() {
-	background(100, 100, 100);
-	ballX += ballxSpeed;
-	ballY += ballySpeed;
-	ballColors[0] = ((ballY/800)*255);
-	drawEllipse(ballX, ballY);
-	if (ballX > width-ballSize/2 || ballX < ballSize/2) {
-		print("BallX: " + ballX);
-		ballxSpeed = (ballxSpeed + random(15)*0.2)*-1;
-		print("ballxSpeed: " + ballxSpeed);
+	background(100);
+	for (let ball of balls) {
+		ball.move();
+		ball.show();
 	}
-	if (ballY > height-ballSize/2 || ballY < ballSize/2) {
-		print("BallY: " + ballY);
-		ballySpeed = (ballySpeed + random(15)*0.2)*-1;
-		print("ballySpeed: " + ballySpeed);
+	
+	for (let i = 0; i < balls.length; i++) {
+		balls[i].move();
+		balls[i].show();
+		if (balls[i].n > 10) {
+			balls.splice(i, 1);	
+		}
 	}
-	if (ballY < -1 || ballX < -1) {
-		ballX = ballX + ballSize;
-		ballY = ballY + ballSize; 
+}
+
+function mousePressed () {
+	let ball = new Ball(mouseX, mouseY);
+	balls.push(ball);
+};
+
+class Ball {
+	constructor(x, y) {
+		this.x = x; //position X
+		this.y = y; //position Y
+
+		this.acc1 = random(-10, 10); //accX
+		this.acc2 = random(-10, 10); //accY
+
+		this.c = color(255, random(184), random(77)); //color
+		this.s = random(10, 100); //size
+		this.n = 0; //number of collisions
+	}
+
+	move() {
+		if (this.x > width) {
+			this.acc1 = random(10)*-1;
+			this.n += 1;
+		}
+		else if (this.x < 0) {
+			this.acc1 = 10;		
+			this.n += 1;
+		}
+		if (this.y > height) {
+			this.acc2 = random(10)*-1;
+			this.n += 1;
+		}
+		else if (this.y < 0) {
+			this.acc2 = random(10);		
+			this.n += 1;
+		}
+		this.x = this.x + this.acc1;
+		this.y = this.y + this.acc2;
+	}
+
+	show() {
+		stroke(this.c);
+		strokeWeight(2);
+		fill(32);
+		ellipse(this.x, this.y, this.s);
 	}
 }
