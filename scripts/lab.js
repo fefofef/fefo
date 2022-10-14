@@ -70,7 +70,7 @@ function draw() {
 	let micLevel = mic.getLevel();
 	noStroke();
 	fill(255);
-	ellipse(width/2;height/2; 200*micLevel);
+		ellipse(width/2, height/2, 200*micLevel);
 	print(micLevel);
 }
 
