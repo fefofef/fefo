@@ -10,9 +10,9 @@ let shadows = [];
 // SOUND ELEMENTS
 let mic;
 
+var generator = 0;
 var lineGrowing = 0;
 var destroyB = 11;
-var generator = 0;
 
 function setup(){
 	let renderer = createCanvas(width, height);
@@ -31,7 +31,6 @@ function draw() {
 	
 	generator = random();
 	makeBall();
-
 	if (lineGrowing == 0) {
 		makeLine();
 	}
@@ -48,16 +47,11 @@ function draw() {
 	}
 
 	destroyB = 11 - balls.length;
-
 	for (let i = 0; i < balls.length; i++) {
 		balls[i].move();
 		balls[i].show();
-		if (balls[i].col == true) {
-			print("bang!");
-		}			
-		
-		if (balls[i].n > destroyB) {
-			balls.splice(i, 1);
+		if (balls[i].col) {
+			console.log("COLISÃO");
 		}
 	}
 	
@@ -72,31 +66,33 @@ function makeBall(randomNumber) {
 		if (generator > 0.90) {
 			let ball = new Ball(random(width), random(height));
 			balls.push(ball);
+			let shadow = new Shadow(balls.x, balls.y);
+			shadows.push(shadow);
 		}
 	}
 	else if (balls.length < 2) {
 		if (generator > 0.99) {
 			let ball = new Ball(random(width), random(height));
 			balls.push(ball);
+			let shadow = new Shadow(ball.x, ball.y);
+			shadows.push(shadow);
 		}
 	}
 	else if (balls.length < 5) {
 		if (generator > 0.995) {
 			let ball = new Ball(random(width), random(height));
 			balls.push(ball);
+			let shadow = new Shadow(ball.x, ball.y);
+			shadows.push(shadow);
 		}
 	}
 	else {
 		if (generator > 0.999) {
 			let ball = new Ball(random(width), random(height));
 			balls.push(ball);
+			let shadow = new Shadow(ball.x, ball.y);
+			shadows.push(shadow);
 		}
-	}
-}
-
-function makeShadow (x, y) {
-	for (let i = 0; i < balls.length; i++) {
-		let shadow = new Shadow(balls[i].x, balls[i].y);				
 	}
 }
 
@@ -137,24 +133,24 @@ class Ball {
 
 	move() {
 		if (this.x + (this.s/2) > width) {
+			this.col = true;
 			this.acc1 = random(5)*-1;
 			this.n += 1;
-			this.col = true;
 		}
 		else if (this.x - (this.s/2) < 0) {
+			this.col = true;
 			this.acc1 = random(5);		
 			this.n += 1;
-			this.col = true;
 		}
 		if (this.y + (this.s/2) > height) {
+			this.col = true;
 			this.acc2 = random(5)*-1;
 			this.n += 1;
-			this.col = true;
 		}
 		else if (this.y - (this.s/2) < 0) {
+			this.col = true;
 			this.acc2 = random(5);		
 			this.n += 1;
-			this.col = true;
 		}
 		this.col = false;
 		this.x = this.x + this.acc1;
@@ -173,8 +169,7 @@ class Shadow {
 	constructor (x, y) {
 		this.x = x;
 		this.y = y;
-		this.c = color(255);
-		this.s = 100;
+		this.s = 200;
 	}
 
 	move (x, y) {
@@ -182,14 +177,12 @@ class Shadow {
 		this.y = y;
 	}
 
-	collision (col){
-		return (col);
-	}
-
-	show () {
-		noStroke();
-		fill(255);
-		ellipse(this.x, this.y, this.s);
+	show (col) {
+		if (col) {
+			noStroke();
+			fill(255);
+			ellipse(this.x, this.y, this.s);
+		}
 	}
 	
 }
@@ -231,5 +224,4 @@ class Line {
 		strokeWeight(this.sW);
 		line(this.x1, this.y1, this.x2, this.y2);
 	}
-	
 }
