@@ -5,6 +5,7 @@ let height = 800;
 // VISUAL ELEMENTS
 let balls = [];
 let lines = [];
+let shadows = [];
 
 // SOUND ELEMENTS
 let mic;
@@ -31,14 +32,8 @@ function draw() {
 	generator = random();
 	makeBall();
 
-
 	if (lineGrowing == 0) {
 		makeLine();
-	}
-	
-	for (let line of lines) {
-		line.grow();
-		line.show();
 	}
 
 	for (let i = 0; i < lines.length; i++) {
@@ -52,26 +47,24 @@ function draw() {
 		}
 	}
 
-	for (let ball of balls) {
-		ball.move();
-		ball.show();
-	}
-
 	destroyB = 11 - balls.length;
 
 	for (let i = 0; i < balls.length; i++) {
 		balls[i].move();
 		balls[i].show();
+		if (balls[i].col == true) {
+			print("bang!");
+		}			
+		
 		if (balls[i].n > destroyB) {
 			balls.splice(i, 1);
 		}
 	}
 	
-	var micLevel = mic.getLevel();
-	noStroke();
-	fill(255);
-	ellipse(width/2, height/2, 200*micLevel);
-	print(micLevel);
+	//var micLevel = mic.getLevel();
+	//noStroke();
+	//fill(255);
+	//ellipse(width/2, height/2, 200*micLevel);
 }
 
 function makeBall(randomNumber) {
@@ -98,6 +91,12 @@ function makeBall(randomNumber) {
 			let ball = new Ball(random(width), random(height));
 			balls.push(ball);
 		}
+	}
+}
+
+function makeShadow (x, y) {
+	for (let i = 0; i < balls.length; i++) {
+		let shadow = new Shadow(balls[i].x, balls[i].y);				
 	}
 }
 
@@ -133,31 +132,31 @@ class Ball {
 		this.c = color(255, random(184), random(77)); //color
 		this.s = random(70, 100); //size
 		this.n = 0; //number of collisions
-		this.w = 0; //shadow size
+		this.col = false; //state of collision
 	}
 
 	move() {
 		if (this.x + (this.s/2) > width) {
 			this.acc1 = random(5)*-1;
 			this.n += 1;
-			this.w = this.s * 2 * mic.getLevel();
+			this.col = true;
 		}
 		else if (this.x - (this.s/2) < 0) {
 			this.acc1 = random(5);		
 			this.n += 1;
-			this.w = this.s * 2 * mic.getLevel();
+			this.col = true;
 		}
 		if (this.y + (this.s/2) > height) {
 			this.acc2 = random(5)*-1;
 			this.n += 1;
-			this.w = this.s * 2 * mic.getLevel();
+			this.col = true;
 		}
 		else if (this.y - (this.s/2) < 0) {
 			this.acc2 = random(5);		
 			this.n += 1;
-			this.w = this.s * 2 * mic.getLevel();
+			this.col = true;
 		}
-		this.w = 0;
+		this.col = false;
 		this.x = this.x + this.acc1;
 		this.y = this.y + this.acc2;
 	}
@@ -167,10 +166,32 @@ class Ball {
 		strokeWeight(2);
 		fill(32);
 		ellipse(this.x, this.y, this.s);
+	}
+}
+
+class Shadow {
+	constructor (x, y) {
+		this.x = x;
+		this.y = y;
+		this.c = color(255);
+		this.s = 100;
+	}
+
+	move (x, y) {
+		this.x = x;
+		this.y = y;
+	}
+
+	collision (col){
+		return (col);
+	}
+
+	show () {
 		noStroke();
 		fill(255);
-		ellipse(this.x,this.y, this.w);
+		ellipse(this.x, this.y, this.s);
 	}
+	
 }
 
 class Line {
