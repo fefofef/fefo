@@ -51,7 +51,8 @@ function draw() {
 		balls[i].move();
 		balls[i].show();
 		if (balls[i].col) {
-			console.log("COLISÃO");
+			shadows[i].move(balls[i].x, balls[i].y);
+			shadows[i].show(balls[i].x, balls[i].y);
 		}
 	}
 	
@@ -122,8 +123,8 @@ class Ball {
 		this.x = x; //position X
 		this.y = y; //position Y
 
-		this.acc1 = random(-5, 5); //accX
-		this.acc2 = random(-5, 5); //accY
+		this.vx = random(-5, 5); //accX
+		this.vy = random(-5, 5); //accY
 
 		this.c = color(255, random(184), random(77)); //color
 		this.s = random(70, 100); //size
@@ -132,29 +133,29 @@ class Ball {
 	}
 
 	move() {
+		this.col = false;
 		if (this.x + (this.s/2) > width) {
 			this.col = true;
-			this.acc1 = random(5)*-1;
+			this.vx = random(5)*-1;
 			this.n += 1;
 		}
 		else if (this.x - (this.s/2) < 0) {
 			this.col = true;
-			this.acc1 = random(5);		
+			this.vx = random(5);		
 			this.n += 1;
 		}
 		if (this.y + (this.s/2) > height) {
 			this.col = true;
-			this.acc2 = random(5)*-1;
+			this.vy = random(5)*-1;
 			this.n += 1;
 		}
 		else if (this.y - (this.s/2) < 0) {
 			this.col = true;
-			this.acc2 = random(5);		
+			this.vy = random(5);		
 			this.n += 1;
 		}
-		this.col = false;
-		this.x = this.x + this.acc1;
-		this.y = this.y + this.acc2;
+		this.x = this.x + this.vx;
+		this.y = this.y + this.vy;
 	}
 
 	show() {
@@ -177,12 +178,10 @@ class Shadow {
 		this.y = y;
 	}
 
-	show (col) {
-		if (col) {
-			noStroke();
-			fill(255);
-			ellipse(this.x, this.y, this.s);
-		}
+	show () {
+		noStroke();
+		fill(255);
+		ellipse(this.x, this.y, this.s);
 	}
 	
 }
