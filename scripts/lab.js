@@ -4,18 +4,18 @@ let height = 800;
 let superimposedCanvas;
 
 // VISUAL ELEMENTS
-let balls = [];
-let lines = [];
-let pollocks = [];
-let shadows = [];
+var balls = [];
+var lines = [];
+var pollocks = [];
+var shadows = [];
 
 // SOUND ELEMENTS
-let mic;
+var mic;
 
 var generator = 0;
 var lineGrowing = 0;
 var pollockAlive = 0;
-var destroyB = 11;
+var maxBalls = 11;
 
 function setup(){
 	let renderer = createCanvas(width, height);
@@ -30,24 +30,33 @@ function setup(){
 	background(100);
 	frameRate(25);
 
-	mic = new p5.AudioIn();
-	mic.start();
+	//mic = new p5.AudioIn();
+	//mic.start();
 }
 
 function draw() {
-	background(100);
+	generator = random();
+	background(map(generator, 0, 1, 150, 160));
 
 	image(superimposedCanvas, 0, 0);
-	
-	generator = random();
-	makeBall();
-	if (lineGrowing == 0) {makeLine();}
-	if (pollockAlive == 0) {makePollock();}
 
+	makeBall(generator);
+	if (lineGrowing == 0) {
+		makeLine(generator);
+	}
+
+	if (pollockAlive == 0) {
+		//print("pollockAlive: " + pollockAlive);
+		makePollock(generator);
+	}
+	
 	for (let i = 0; i < pollocks.length; i++) {
 		pollocks[i].paint(generator);
 		if (pollocks[i].isAlive == 1) {
 			pollockAlive = 1;
+		}
+		else {
+			pollockAlive = 0;
 		}
 	}
 
@@ -62,8 +71,8 @@ function draw() {
 		}
 	}
 
-	destroyB = 11 - balls.length;
-	var micLevel = mic.getLevel();
+	maxBalls = 11 - balls.length;
+	//var micLevel = mic.getLevel();
 	for (let i = 0; i < balls.length; i++) {
 		balls[i].move();
 		if (balls[i].col) {
@@ -72,7 +81,7 @@ function draw() {
 			//shadows[i].show(micLevel);//with sound
 		}
 		balls[i].show();
-		if (balls[i].n > destroyB) {
+		if (balls[i].n > maxBalls ) {
 			balls.splice(i, 1);
 			shadows.splice(i, 1);
 		}
@@ -115,53 +124,47 @@ function makeBall(randomNumber) {
 	}
 }
 
-//function mousePressed() {
-//	let pollock = new Pollock();
-//	pollocks.push(pollock);
-//	print("mousePressed!");
-//}
 
 function makePollock (randomNumber) {
-	if (pollocks.lenght < 1) {
-		if (generator < 0.1) {
-			let pollock = new Pollock();
-			pollocks.push(pollock);
-		}
-	}
-	else if (pollocks.lenght < 20) {
-		if (generator < 0.05) {
-			let pollock = new Pollock();
-			pollocks.push(pollock);
-		}
-	}
-	else {
-		if (pollocks < 0.01) {
-			let pollock = new Pollock();
-			pollocks.push(pollock);
-		}
+	if (generator < 0.01) {
+		//print("NEW POLLOCK");
+		let pollock = new Pollock();
+		pollocks.push(pollock);
 	}
 }
 
-function makeLine(randomNumber) {
-	if (lines.lenght < 1) {
-		if (generator < 0.1) {
-			let line = new Line();
-			lines.push(line);
-		}
-	}
-	else if (lines.lenght < 20) {
-		if (generator < 0.05) {
-			let line = new Line();
-			lines.push(line);
-		}
-	}
-	else {
-		if (generator < 0.01) {
-			let line = new Line();
-			lines.push(line);
-		}
-	}
+function makeLine(randomNumber) {    
+        if (lines.lenght < 1) {    
+                if (generator < 0.1) {    
+                        let line = new Line();    
+                        lines.push(line);      
+                }    
+        }    
+        else if (lines.lenght < 20) {    
+                if (generator < 0.05) {    
+                        let line = new Line();    
+                        lines.push(line);    
+                }    
+        }    
+        else {    
+                if (generator < 0.01) {     
+                        let line = new Line();    
+                        lines.push(line);    
+                }      
+        }    
 }
+
+// function makeLine(randomNumber) {
+// 	if (lines.lenght < 5) {
+// 		if (generator < 0.1) {
+// 			let randomLineX = random(width*0.2, width*0.8);
+// 			let randomLineY = random(height*0.2, height*0.8);
+// 			let line = new Line(randomLineX, randomLineY);
+// 			print(line);
+// 			lines.push(line);
+// 		}
+// 	} 
+// }
 
 class Ball {
 	constructor() {
@@ -237,9 +240,9 @@ class Shadow {
 }
 
 class Line {
-	constructor() {
+	constructor() { 
 		this.x1 = random(width*0.2, width*0.8);
-		this.y1 = random(height*0.2, height*0.8);
+                this.y1 = random(height*0.2, height*0.8);
 		this.x2 = this.x1;
 		this.y2 = this.y1;
 
@@ -277,41 +280,65 @@ class Line {
 
 class Pollock {
 	constructor() {
+		//position
 		this.x = random(width);
 		this.y = random(height);
 		this.n = 0;
-		this.isAlive = 1;
 		this.pos = createVector(this.x, this.y);
 		this.prev = this.pos.copy();
+		//color
+		this.r = random(200);
+		this.g = random(200);
+		this.b = random(200);
+		//status
+		this.isAlive = 1;
 	}
 
 	paint (generator) {
-		superimposedCanvas.stroke(random(0, 100), random(100, 200), random(100, 200), 255);
+		superimposedCanvas.stroke(
+			//colors
+			this.r + map(generator, 0, 1, -20, 20),
+			this.g + map(generator, 0, 1, -20, 20), 
+			this.b + map(generator, 0, 1, -20, 20), 
+			map(generator, 0 , 1, 0, 255));
 		superimposedCanvas.noFill(100);
-		superimposedCanvas.strokeWeight(generator*random(5));    
-		
-		if (generator > 0.98) {
-			superimposedCanvas.point(this.pos.x, this.pos.y);
-			superimposedCanvas.bezier(this.pos.x, this.pos.y, random(width), random(width), random(width), random(width), this.prev.x, this.prev.y)    
-			this.prev.set(this.pos);    
-			
-			this.step = p5.Vector.random2D();    
-	                this.step.mult(random(width/5) + 1);    
-       			this.pos.add(this.step);      
-			this.n++;
-		} else {    
-			superimposedCanvas.point(this.pos.x, this.pos.y);                
-			superimposedCanvas.bezier(this.pos.x, this.pos.y, this.pos.x + random(width*0.1*-1, height*0.1), this.pos.y + random(width*0.1*-1, height*0.1), this.prev.x + random(width*0.1*-1, height*0.1), this.prev.y + random(width*0.1*-1, height*0.1), this.prev.x, this.prev.y)    
-	                this.prev.set(this.pos);    
+		superimposedCanvas.strokeWeight(generator*random(5));
+		if (this.n < 100) {
+			if (generator > 0.99) {
+				superimposedCanvas.point(this.pos.x, this.pos.y);
+				superimposedCanvas.bezier(this.pos.x,
+					this.pos.y,
+					random(width), 
+					random(width), 
+					random(width), 
+					random(width), 
+					random(width)-this.prev.x, 
+					random(height)-this.prev.y)    
+				this.prev.set(this.pos);    
+				
+				this.step = p5.Vector.random2D();    
+	                	this.step.mult(random(width/5) + 1);    
+       				this.pos.add(this.step);      
+				this.n++;
+			} else {	    
+				superimposedCanvas.point(this.pos.x, this.pos.y);                
+				superimposedCanvas.bezier(this.pos.x, this.pos.y, this.pos.x + random(width*0.1*-1, height*0.1), this.pos.y + random(width*0.1*-1, height*0.1), this.prev.x + random(width*0.1*-1, height*0.1), this.prev.y + random(width*0.1*-1, height*0.1), this.prev.x, this.prev.y)    
+	                	this.prev.set(this.pos);    
 	
-			this.step = p5.Vector.random2D();
-			this.step.mult(random(5, 10) + 1);
-			this.pos.add(this.step);
+				this.step = p5.Vector.random2D();
+				this.step.mult(random(5, 10) + 1);
+				this.pos.add(this.step);
+				this.n++;
+			}
 			this.n++;
-		}
-		if (this.n > 100) {
+		} else	{
 			this.isAlive = 0;			
-			this.pos = this.prev;
 		}
-	}
+		}
 }
+
+// function mousePressed() {
+// 	let line = new Line(random(width), random(height));
+// 	lines.push(line);
+// 	print("mousePressed!");
+// }
