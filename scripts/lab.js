@@ -12,10 +12,14 @@ var shadows = [];
 // SOUND ELEMENTS
 var mic;
 
+// GENERATION
 var generator = 0;
 var lineGrowing = 0;
 var pollockAlive = 0;
+
+// DESTRUCTION
 var maxBalls = 11;
+var pr, pg, pb;
 
 function setup(){
 	let renderer = createCanvas(width, height);
@@ -29,6 +33,10 @@ function setup(){
 
 	background(100);
 	frameRate(25);
+
+	pr = random(255);
+	pg = random(255);
+	pb = random(255);
 
 	//mic = new p5.AudioIn();
 	//mic.start();
@@ -52,6 +60,9 @@ function draw() {
 	
 	for (let i = 0; i < pollocks.length; i++) {
 		pollocks[i].paint(generator);
+		pr = pollocks[i].r;
+		pg = pollocks[i].g;
+		pb = pollocks[i].b;
 		if (pollocks[i].isAlive == 1) {
 			pollockAlive = 1;
 		}
@@ -128,7 +139,7 @@ function makeBall(randomNumber) {
 function makePollock (randomNumber) {
 	if (generator < 0.01) {
 		//print("NEW POLLOCK");
-		let pollock = new Pollock();
+		let pollock = new Pollock(pr,pg,pb);
 		pollocks.push(pollock);
 	}
 }
@@ -279,7 +290,7 @@ class Line {
 }
 
 class Pollock {
-	constructor() {
+	constructor(r, g, b) {
 		//position
 		this.x = random(width);
 		this.y = random(height);
@@ -287,9 +298,9 @@ class Pollock {
 		this.pos = createVector(this.x, this.y);
 		this.prev = this.pos.copy();
 		//color
-		this.r = random(200);
-		this.g = random(200);
-		this.b = random(200);
+		this.r = r;
+		this.g = g; 
+		this.b = g;
 		//status
 		this.isAlive = 1;
 	}
@@ -297,14 +308,14 @@ class Pollock {
 	paint (generator) {
 		superimposedCanvas.stroke(
 			//colors
-			this.r + map(generator, 0, 1, -20, 20),
-			this.g + map(generator, 0, 1, -20, 20), 
-			this.b + map(generator, 0, 1, -20, 20), 
+			this.r = this.r + map(generator, 0, 1, -20, 20),
+			this.g = this.g + map(generator, 0, 1, -20, 20), 
+			this.b = this.b + map(generator, 0, 1, -20, 20), 
 			map(generator, 0 , 1, 0, 255));
 		superimposedCanvas.noFill(100);
 		superimposedCanvas.strokeWeight(generator*random(5));
 		if (this.n < 100) {
-			if (generator > 0.99) {
+			if (generator > 0.9) {
 				superimposedCanvas.point(this.pos.x, this.pos.y);
 				superimposedCanvas.bezier(this.pos.x,
 					this.pos.y,
