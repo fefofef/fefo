@@ -1,21 +1,25 @@
 // CANVAS
-let width = 800;
-let height = 800;
-let secondCanvas;
-let pixelCanvas;
+const width = 800;
+const height = 800;
+var secondCanvas;
+var pixelCanvas;
 
 // VISUAL ELEMENTS
 var balls = [];
 var lines = [];
 var pollocks = [];
 var impacts = [];
+var dots = [];
 var parametrics = [];
 
 // GENERATION
 var generator = 0;
 var lineGrowing = 0;
 var pollockAlive = 0;
-var t = 0;
+var dotAlive = 0;
+var xoff = 0;
+var inc = 0.03;
+var t = 0; //parametric
 
 // DESTRUCTION
 var maxBalls = 11;
@@ -32,12 +36,6 @@ function mod(n, m) {
 function setup(){
 	let renderer = createCanvas(width, height);
 	renderer.parent("canvas-container");
-	
-	//pixelCanvas = createGraphics(width, height);
-	//pixelCanvas.parent("canvas-container");
-	//
-	//pixelCanvas.background(0);
-	//image(pixelCanvas, 0, 0);
 	
 	secondCanvas = createGraphics(width, height);
 	secondCanvas.parent("canvas-container");
@@ -59,15 +57,17 @@ function draw() {
 	image(secondCanvas, 0, 0);
 
 
+	//generate elements
 	makeBall(generator);
+
 	if (lineGrowing == 0) {
 		makeLine(generator);
 	}
-
+	
 	if (pollockAlive == 0) {
 		makePollock(generator);
 	}
-	
+
 	for (let i = 0; i < pollocks.length; i++) {
 		pollocks[i].paint(generator);
 		if (pollocks[i].isAlive == 1) {
@@ -80,20 +80,37 @@ function draw() {
 			pollockAlive = 0;
 		}
 	}
-
+	
+	//generate lines
 	for (let i = 0; i < lines.length; i++) {
 		lines[i].grow();
 		lines[i].show();
 		if (lines[i].growing == 1) {
 			lineGrowing = 1;	
-		}
-		else {
+		} else {
 			lineGrowing = 0;
 		}
 	}
-
-	maxBalls = 11 - balls.length;
 	
+	//generate dots
+	if (dotAlive == 0) {
+		makeDots(generator);
+	}
+	if (generator > 0.1 && generator < 0.2) {
+		for (let i = 0; i < dots.length; i++) {
+			dots[i].move();
+			dots[i].show();
+			if (dots[i].isAlive == 1) {
+				dotAlive = 1;
+			} else {
+				dotAlive = 0;
+			}
+		}
+	}
+	
+
+	//generate balls
+	maxBalls = 11 - balls.length;
 	for (let i = 0; i < balls.length; i++) {
 		balls[i].move();
 		if (balls[i].col) {
@@ -106,47 +123,24 @@ function draw() {
 			impacts.splice(i, 1);
 		}
 	}
-	para();
-	t++;
+	
+	curved();
+
+	//parametric();
+	//t++;
 }
 
+//CREATION FUNCTIONS
 function makeBall(generator) {
-	if (balls.lenght < 1 && generator > 0.9) {
-		if (generator > 0.90) {
-			let ball = new Ball();
-			balls.push(ball);
-			let impact = new Impact(ball.x, ball.y, ball.s);
-			impacts.push(impact);
-		}
-	}
-	else if (balls.length < 2) {
-		if (generator > 0.99) {
-			let ball = new Ball();
-			balls.push(ball);
-			let impact = new Impact(ball.x, ball.y, ball.s);
-			impacts.push(impact);
-		}
-	}
-	else if (balls.length < 5) {
-		if (generator > 0.995) {
-			let ball = new Ball();
-			balls.push(ball);
-			let impact = new Impact(ball.x, ball.y, ball.s);
-			impacts.push(impact);
-		}
-	}
-	else {
-		if (generator > 0.999) {
-			let ball = new Ball();
-			balls.push(ball);
-			let impact = new Impact(ball.x, ball.y, ball.s);
-			impacts.push(impact);
-		}
+	if (generator > 0.999) {
+		let ball = new Ball;
+		balls.push(ball);
+		let impact = new Impact(ball.x, ball.y, ball.s);
+		impacts.push(impact);
 	}
 }
 
-
-function makePollock (generator) {
+function makePollock(generator) {
 	if (generator < 0.001) {
 		//print("NEW POLLOCK");
 		let pollock = new Pollock(mod(pr, 255), mod(pg, 255), mod(pb, 255));
@@ -155,41 +149,17 @@ function makePollock (generator) {
 }
 
 function makeLine(generator) {    
-        if (lines.lenght < 1 && generato < 0.1) {    
+	if (generator > 0.49 && generator < 0.5) {    
                 let line = new Line();    
                 lines.push(line);      
         }    
-        else if (lines.lenght < 20 && generator < 0.05) {    
-                let line = new Line();    
-                lines.push(line);    
-        }    
-        else {    
-                if (generator < 0.01) {     
-                        let line = new Line();    
-                        lines.push(line);    
-                }      
-        }    
 }
 
-function smokeBackground() {
-	let inc = 0.005;
-	let xoff = 0; 
-	pixelCanvas.loadPixels();
-	pixelCanvas.stroke(0);
-	for (let x = 0; x < width; x++) {
-		let yoff = 1000;
-		for (let y = 0; y < height; y++) {
-			let i = (x + y * width) * 4;
-			r = noise(xoff, yoff);
-			pixelCanvas.pixels[i+0] = r*255;
-			pixelCanvas.pixels[i+1] = r*100;
-			pixelCanvas.pixels[i+2] = r*50;
-			pixelCanvas.pixels[i+4] = r*150;
-			yoff += inc;
-		}
-	xoff += inc;
-	}
-	pixelCanvas.updatePixels();
+function makeDots(generator) {    
+        if (generator > 0.199 && generator < 0.2) {    
+                let dot = new Dot();
+                dots.push(dot);
+        }    
 }
 
 class Ball {
@@ -212,22 +182,22 @@ class Ball {
 		if (this.x + (this.s/2) > width) {
 			this.col = true;
 			this.vx = random(5)*-1;
-			this.n += 1;
+			this.n++;
 		}
 		else if (this.x - (this.s/2) < 0) {
 			this.col = true;
 			this.vx = random(5);		
-			this.n += 1;
+			this.n++;
 		}
 		if (this.y + (this.s/2) > height) {
 			this.col = true;
 			this.vy = random(5)*-1;
-			this.n += 1;
+			this.n++;
 		}
 		else if (this.y - (this.s/2) < 0) {
 			this.col = true;
 			this.vy = random(5);		
-			this.n += 1;
+			this.n++;
 		}
 		this.x = this.x + this.vx;
 		this.y = this.y + this.vy;
@@ -242,19 +212,19 @@ class Ball {
 }
 
 class Impact {
-	constructor (x, y, s) {
+	constructor(x, y, s) {
 		this.x = x;
 		this.y = y;
 		this.s = s;
 		this.c = color(random(255), random(255), random(255), random(150,200)); //color
 	}
 
-	move (x, y) {
+	move(x, y) {
 		this.x = x;
 		this.y = y;
 	}
 
-	show () {
+	show() {
 		noStroke();
 		fill(this.c);
 		ellipse(this.x, this.y, this.s*2);
@@ -313,7 +283,7 @@ class Pollock {
 		//status
 		this.isAlive = 1;
 	}
-	paint (generator) {
+	paint(generator) {
 		secondCanvas.stroke(//colors
 			this.r = this.r + map(random(), 0, 1, -2, 2),
 			this.g = this.g + map(random(), 0, 1, -2, 2), 
@@ -322,7 +292,7 @@ class Pollock {
 
 		secondCanvas.noFill(100);
 		secondCanvas.strokeWeight(generator*random(5));
-		if (this.n < 100) {
+		if (this.n < 10) {
 			if (generator > 0.9) {
 				secondCanvas.point(this.pos.x, this.pos.y);
 				secondCanvas.bezier(this.pos.x,
@@ -366,8 +336,42 @@ class Pollock {
 		}
 }
 
+class Dot {
+	constructor() {
+		this.x = random(width);
+		this.y = random(height);
+		this.xoff = 0;
+		this.yoff = 100;
 
-//Parametric equation
+		this.sw = random(10); //strokeWeight
+		this.c = random(255); //color
+		this.n = 0;
+		this.isAlive = 1;
+	}
+
+	move() {
+		if (this.n < 100) {
+			this.x = (this.x + random(-10,10)); 
+			this.y = (this.y + random(-10,10));
+			this.n++;
+		} else {
+			this.isAlive = 0;
+		}
+	}
+
+	show() {
+		this.sw = random(1,10);
+		this.c = random(100);
+		secondCanvas.stroke(this.c);
+		secondCanvas.strokeWeight(this.sw);
+		secondCanvas.point(this.x, this.y);
+		
+		this.xoff += 0.01;
+		this.yoff += 0.01;
+	}
+}
+
+//parametric equation
 function x1(t) {
 	return sin(t/10)*100 + sin(t/5)*20;	
 }
@@ -384,25 +388,41 @@ function y2(t) {
 	return sin(t/10)*200 + cos(t/12)*20;	
 }
 
-function para() {
+function parametric() {
 	stroke(0);
 	strokeWeight(5);
 	translate(width/2, height/2);
-	for (let i = 0; i < 20; i++) {
-		line(x1(t+i),y1(t+i),x2(t+i),y2(t+i));
-	}
-}
-
-class Dots {
-	constructor (x, y) {
-		this.x;
-		this.y;
+	for (let i = 0; i < 3; i++) {
+		line(x1(t+i*10),y1(t+i*10),x2(t+i*10),y2(t+i*10));
 	}
 }
 
 
-//function mousePressed() {
-// 	print("NEW PARAMETRIC");
-// 	let para = new Parametric();
-// 	parametrics.push(para);
-//}
+function smokeBackground() {
+	let inc = 0.005;
+	let xoff = 0; 
+	loadPixels();
+	stroke(0);
+	for (let x = 0; x < width; x++) {
+		let yoff = 1000;
+		for (let y = 0; y < height; y++) {
+			let i = (x + y * width) * 4;
+			r = noise(xoff, yoff);
+			pixels[i+0] = r*random(100);
+			pixels[i+1] = r*random(200);
+			pixels[i+2] = r*random(10);
+			pixels[i+4] = r*random(255);
+			yoff += inc;
+		}
+	xoff += inc;
+	}
+	updatePixels();
+}
+
+function curved() {
+	secondCanvas.strokeWeight(map(noise(xoff), 0, 1, 1, 30));
+	if (mouseIsPressed === true) {
+		secondCanvas.line(mouseX, mouseY, pmouseX, pmouseY);
+		xoff = xoff + inc;
+	}
+}
