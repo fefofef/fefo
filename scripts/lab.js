@@ -27,6 +27,7 @@ var maxNoisy = 11;
 
 // COLORS
 var pr, pg, pb; //pollock pallete
+var filter;
 
 // module operation for negative numbers
 function mod(n, m) {
@@ -36,6 +37,8 @@ function mod(n, m) {
 function setup(){
 	let renderer = createCanvas(width, height);
 	renderer.parent("canvas-container");
+
+	filter = new makeFilter();
 	
 	secondCanvas = createGraphics(width, height);
 	secondCanvas.parent("canvas-container");
@@ -53,7 +56,7 @@ function setup(){
 function draw() {
 	generator = random();
 	
-	background(255, 236, 223);
+	background(255, 255, 255);
 	image(secondCanvas, 0, 0);
 
 
@@ -96,15 +99,13 @@ function draw() {
 	if (dotAlive == 0) {
 		makeDots(generator);
 	}
-	if (generator > 0.1 && generator < 0.2) {
-		for (let i = 0; i < dots.length; i++) {
-			dots[i].move();
+	for (let i = 0; i < dots.length; i++) {
+		dots[i].move();
+		if (dots[i].isAlive == 1) {
 			dots[i].show();
-			if (dots[i].isAlive == 1) {
-				dotAlive = 1;
-			} else {
-				dotAlive = 0;
-			}
+			dotAlive = 1
+		} else {
+		dotAlive = 0;
 		}
 	}
 	
@@ -128,9 +129,10 @@ function draw() {
 
 	//parametric();
 	//t++;
+	image(overAllTexture, 0, 0);
 }
 
-//CREATION FUNCTIONS
+//---------------------------CREATION FUNCTIONS---------------------------//
 function makeBall(generator) {
 	if (generator > 0.999) {
 		let ball = new Ball;
@@ -162,6 +164,7 @@ function makeDots(generator) {
         }    
 }
 
+//---------------------------CLASSES---------------------------//
 class Ball {
 	constructor() {
 		this.s = random(70, 100); //size
@@ -240,7 +243,7 @@ class Line {
 
 		this.xg = random(-2, 2); // X growth speed
 		this.yg = random(-2, 2); // Y growth speed
-		this.sW = random(20,100)/50; // Stroke Weight
+		this.sW = random(2,10); // strokeWeight
 
 		this.size = random(height/2, width/2); // line lenght 
 		this.growing = 0;
@@ -316,10 +319,10 @@ class Pollock {
 					this.pos.y, 
 					this.pos.x + random(width*random(-1,1), height*random(-1,1)), 
 					this.pos.y + random(width*random(-1,1), height*random(-1,1)), 
-					random(width)*-1,
-					random(height)*-1,
-					//this.prev.x + random(width*random(-1,1), height*random(-1,1)), //comment to wavy lines
-					//this.prev.y + random(width*random(-1,1), height*random(-1,1)), //comment to wavy lines 
+					//random(width)*-1,
+					//random(height)*-1,
+					this.prev.x + random(width*random(-1,1), height*random(-1,1)), //comment to wavy lines
+					this.prev.y + random(width*random(-1,1), height*random(-1,1)), //comment to wavy lines 
 					this.prev.x, 
 					this.prev.y)    
 	                	this.prev.set(this.pos);    
@@ -340,53 +343,63 @@ class Dot {
 	constructor() {
 		this.x = random(width);
 		this.y = random(height);
-		this.xoff = 0;
-		this.yoff = 100;
 
 		this.sw = random(10); //strokeWeight
 		this.c = random(255); //color
 		this.n = 0;
 		this.isAlive = 1;
+
+		this.r = random();
 	}
 
 	move() {
-		if (this.n < 100) {
-			this.x = (this.x + random(-10,10)); 
-			this.y = (this.y + random(-10,10));
-			this.n++;
-		} else {
-			this.isAlive = 0;
+		if (this.r > 0.15 && this.r < 0.25) {
+			this.sw = random(1,10);
+			this.c = random(100);
+			if (this.n < 100) {
+				this.x = (this.x + random(-15,15)); 
+				this.y = (this.y + random(-15,15));
+				this.n++;
+			} else {
+				this.isAlive = 0;
+			}
 		}
+		this.r = random();
 	}
 
 	show() {
-		this.sw = random(1,10);
-		this.c = random(100);
 		secondCanvas.stroke(this.c);
 		secondCanvas.strokeWeight(this.sw);
 		secondCanvas.point(this.x, this.y);
-		
-		this.xoff += 0.01;
-		this.yoff += 0.01;
 	}
 }
 
-//parametric equation
-function x1(t) {
-	return sin(t/10)*100 + sin(t/5)*20;	
+function polygon(){
+  translate(width/10, height/10);
+  fill(random(255), random(255), random(255));
+  beginShape()
+    for(let i=0; i<100; i++){
+      curveVertex(map(noise(xoff), 0, 1, 0, height)+(inc*10), map(noise(yoff), 0, 1, 0, height)+(inc*10));
+      //curveVertex(random(width/2), random(height/2));
+      xoff = xoff+inc;
+      yoff = yoff+inc;
+    }
+  endShape(CLOSE);
 }
 
-function y1(t) {
-	return cos(t/10)*100;	
+function curved() {
+	secondCanvas.strokeWeight(map(noise(xoff), 0, 1, 1, 30));
+	if (mouseIsPressed === true) {
+		secondCanvas.line(mouseX, mouseY, pmouseX, pmouseY);
+		xoff = xoff + inc;
+	}
 }
 
-function x2(t) {
-	return sin(t/10)*200 + sin(t)*2;	
-}
-
-function y2(t) {
-	return sin(t/10)*200 + cos(t/12)*20;	
-}
+//-------------------------PARAMETRIC FUNCTION---------------------------//
+function x1(t) {return sin(t/10)*100 + sin(t/5)*20;}
+function y1(t) {return cos(t/10)*100;}
+function x2(t) {return sin(t/10)*200 + sin(t)*2;}
+function y2(t) {return sin(t/10)*200 + cos(t/12)*20;}
 
 function parametric() {
 	stroke(0);
@@ -398,31 +411,28 @@ function parametric() {
 }
 
 
-function smokeBackground() {
-	let inc = 0.005;
-	let xoff = 0; 
-	loadPixels();
-	stroke(0);
-	for (let x = 0; x < width; x++) {
-		let yoff = 1000;
-		for (let y = 0; y < height; y++) {
-			let i = (x + y * width) * 4;
-			r = noise(xoff, yoff);
-			pixels[i+0] = r*random(100);
-			pixels[i+1] = r*random(200);
-			pixels[i+2] = r*random(10);
-			pixels[i+4] = r*random(255);
-			yoff += inc;
-		}
-	xoff += inc;
-	}
-	updatePixels();
-}
 
-function curved() {
-	secondCanvas.strokeWeight(map(noise(xoff), 0, 1, 1, 30));
-	if (mouseIsPressed === true) {
-		secondCanvas.line(mouseX, mouseY, pmouseX, pmouseY);
-		xoff = xoff + inc;
+//---------------------------BACKGROUND TEXTURE---------------------------//
+function makeFilter() {
+	//taken from https://openprocessing.org/sketch/1632092
+	let scale = 2 //increase pixel size of texture
+	let w = int(width/scale)
+	let h = int(height/scale)
+	overAllTexture = createGraphics(w, h); // need to scale back up later
+	overAllTexture.loadPixels();
+	for (var i = 0; i < w; i++) { // noprotect
+		for (var j = 0; j < h; j++) {
+			overAllTexture.set(i, j, color(0, 0, 99,
+					0.9*noise(i / 3, j / 3, (i * j) / 50) * (5 + 10*Math.random()) ) );
+		}
 	}
+	overAllTexture.updatePixels();
+	let temp = createGraphics(displayWidth, displayHeight);
+	temp.image(overAllTexture, 0, 0, displayWidth, displayHeight);
+	push()
+	//rotate and scale up more to create a more interesting texture
+	rotate(radians(45))
+	temp.image(overAllTexture, 0, 0, displayWidth*3, displayHeight*3);
+	overAllTexture = temp;
+	pop()
 }
