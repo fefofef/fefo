@@ -10,6 +10,7 @@ var lines = [];
 var pollocks = [];
 var impacts = [];
 var dots = [];
+var stains = [];
 var parametrics = [];
 
 // GENERATION
@@ -20,6 +21,10 @@ var dotAlive = 0;
 var xoff = 0;
 var inc = 0.03;
 var t = 0; //parametric
+// Stain arrays
+var arrayX = [];
+var arrayY = [];
+var arrayS = [];
 
 // DESTRUCTION
 var maxBalls = 11;
@@ -27,18 +32,18 @@ var maxNoisy = 11;
 
 // COLORS
 var pr, pg, pb; //pollock pallete
-var filter;
+var paper;
 
 // module operation for negative numbers
 function mod(n, m) {
   return ((n % m) + m) % m;
 }
 
-function setup(){
+function setup() {
 	let renderer = createCanvas(width, height);
 	renderer.parent("canvas-container");
 
-	filter = new makeFilter();
+	paper = new makeFilter();
 	
 	secondCanvas = createGraphics(width, height);
 	secondCanvas.parent("canvas-container");
@@ -46,7 +51,7 @@ function setup(){
 
 	background(255, 236, 223);
 	frameRate(30);
-
+	angleMode(DEGREES);
 
 	pr = random(255);
 	pg = random(255);
@@ -120,12 +125,19 @@ function draw() {
 		}
 		balls[i].show();
 		if (balls[i].n > maxBalls ) {
+			let stain = new Stain(balls[i].x, balls[i].y, balls[i].s, balls[i].c);
+			stain.define();
+			stains.push(stain);
+
 			balls.splice(i, 1);
 			impacts.splice(i, 1);
 		}
 	}
-	
-	curved();
+
+	for (let i = 0; i < stains.length; i++) {
+		stains[i].show();		
+	}	
+	//curved();
 
 	//parametric();
 	//t++;
@@ -151,7 +163,8 @@ function makePollock(generator) {
 }
 
 function makeLine(generator) {    
-	if (generator > 0.49 && generator < 0.5) {    
+	if (generator > 0.499 && generator < 0.5) {
+		print(generator);
                 let line = new Line();    
                 lines.push(line);      
         }    
@@ -231,6 +244,52 @@ class Impact {
 		noStroke();
 		fill(this.c);
 		ellipse(this.x, this.y, this.s*2);
+	}
+}
+
+class Stain {
+	constructor(x, y, s, c) {
+		//position
+		this.x = x;
+		this.y = y;
+		this.s = s;
+
+		//colors
+		this.c = c;
+
+		//initial vertex
+		this.l = int(random(5,10)); //numbers of layers
+	}
+	define() {
+		for (let i = 0; i < this.l; i++) {
+			let x = random(10);			
+			let y = random(10);			
+			let s = random(1);			
+                	arrayX.push(x);
+                	arrayY.push(y);
+                	arrayS.push(s);
+		}				
+	}
+
+	show() {
+		noStroke();
+		fill(this.c);
+		for (let i = 0; i < this.l; i++) {
+			ellipse(this.x + arrayX[i], this.y + arrayY[i], this.s*arrayS[i]);
+		}
+		//for (let i = 0; i < 3; i++) {
+		//	push();
+		//	translate(this.x, this.y);
+		//	rotate(random(PI*2));
+		//	beginShape();
+		//	for (let m = 0; m < PI * 2; m += 1) {
+		//		let r = random(20, 50);
+		//		let x = cos(m) * r;
+		//		let y = sin(m) * r;
+		//		vertex(x, y);
+		//	}
+		//	endShape(CLOSE);
+		//}
 	}
 }
 
@@ -410,8 +469,6 @@ function parametric() {
 	}
 }
 
-
-
 //---------------------------BACKGROUND TEXTURE---------------------------//
 function makeFilter() {
 	//taken from https://openprocessing.org/sketch/1632092
@@ -435,4 +492,8 @@ function makeFilter() {
 	temp.image(overAllTexture, 0, 0, displayWidth*3, displayHeight*3);
 	overAllTexture = temp;
 	pop()
+}
+
+function mousePressed(){
+	print("mouse pressed!");
 }
