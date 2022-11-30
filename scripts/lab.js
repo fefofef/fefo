@@ -139,9 +139,9 @@ function draw() {
 	}	
 	//curved();
 
-	//parametric();
-	//t++;
 	image(overAllTexture, 0, 0);
+	parametric();
+	t = t+100;
 }
 
 //---------------------------CREATION FUNCTIONS---------------------------//
@@ -455,8 +455,8 @@ function curved() {
 }
 
 //-------------------------PARAMETRIC FUNCTION---------------------------//
-function x1(t) {return sin(t/10)*100 + sin(t/5)*20;}
-function y1(t) {return cos(t/10)*100;}
+function x1(t) {return sin(t/10)*200 + sin(t/5)*100;}
+function y1(t) {return cos(t/10)*200;}
 function x2(t) {return sin(t/10)*200 + sin(t)*2;}
 function y2(t) {return sin(t/10)*200 + cos(t/12)*20;}
 
@@ -465,7 +465,7 @@ function parametric() {
 	strokeWeight(5);
 	translate(width/2, height/2);
 	for (let i = 0; i < 3; i++) {
-		line(x1(t+i*10),y1(t+i*10),x2(t+i*10),y2(t+i*10));
+		line(x1(t+i*200), y1(t+i*200), x2(t+i*200), y2(t+i*200));
 	}
 }
 
