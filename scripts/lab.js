@@ -4,7 +4,7 @@ const height = 800;
 var secondCanvas;
 var pixelCanvas;
 
-// VISUAL ELEMENTS
+// CLASSES OF VISUAL ELEMENTS
 var balls = [];
 var lines = [];
 var pollocks = [];
@@ -13,22 +13,23 @@ var dots = [];
 var stains = [];
 var parametrics = [];
 
-// GENERATION
+// GENERATION VARIABLES
 var generator = 0;
 var lineGrowing = 0;
 var pollockAlive = 0;
 var dotAlive = 0;
+var paraAlive = 0;
 var xoff = 0;
 var inc = 0.03;
 var t = 0; //parametric
+var rx1, rx2, ry1, ry2;
 // Stain arrays
 var arrayX = [];
 var arrayY = [];
 var arrayS = [];
 
-// DESTRUCTION
+// DESTRUCTION CONDITIONS
 var maxBalls = 11;
-var maxNoisy = 11;
 
 // COLORS
 var pr, pg, pb; //pollock pallete
@@ -110,7 +111,7 @@ function draw() {
 			dots[i].show();
 			dotAlive = 1
 		} else {
-		dotAlive = 0;
+			dotAlive = 0;
 		}
 	}
 	
@@ -137,11 +138,23 @@ function draw() {
 	for (let i = 0; i < stains.length; i++) {
 		stains[i].show();		
 	}	
+	
 	//curved();
 
 	image(overAllTexture, 0, 0);
-	parametric();
-	t = t+100;
+
+	//generate paremetric
+	if (paraAlive == 0) {
+		makeParametric(generator);
+	}
+	for (let i = 0; i < parametrics.length; i++) {
+		if (parametrics[i].isAlive == 1) {
+			parametrics[i].show();
+		} else {
+			paraAlive == 0;
+			parametrics.splice(i, 1);
+		}
+	}
 }
 
 //---------------------------CREATION FUNCTIONS---------------------------//
@@ -156,7 +169,6 @@ function makeBall(generator) {
 
 function makePollock(generator) {
 	if (generator < 0.001) {
-		//print("NEW POLLOCK");
 		let pollock = new Pollock(mod(pr, 255), mod(pg, 255), mod(pb, 255));
 		pollocks.push(pollock);
 	}
@@ -164,7 +176,6 @@ function makePollock(generator) {
 
 function makeLine(generator) {    
 	if (generator > 0.499 && generator < 0.5) {
-		print(generator);
                 let line = new Line();    
                 lines.push(line);      
         }    
@@ -175,6 +186,19 @@ function makeDots(generator) {
                 let dot = new Dot();
                 dots.push(dot);
         }    
+}
+
+function makeParametric(generator) {
+	if (generator > 0.299 && generator < 0.3) {
+		rx1 = random(width);
+		ry1 = random(width);
+		rx2 = random(width);
+		ry2 = random(width);
+
+		let n = random(1, 5);
+                let parametric = new Parametric(n);
+                parametrics.push(parametric);
+	}
 }
 
 //---------------------------CLASSES---------------------------//
@@ -455,20 +479,52 @@ function curved() {
 }
 
 //-------------------------PARAMETRIC FUNCTION---------------------------//
-function x1(t) {return sin(t/10)*200 + sin(t/5)*100;}
-function y1(t) {return cos(t/10)*200;}
-function x2(t) {return sin(t/10)*200 + sin(t)*2;}
-function y2(t) {return sin(t/10)*200 + cos(t/12)*20;}
+function x1(t) {return sin(t/10)*100+rx1;}
+function y1(t) {return cos(t/10)*100+ry1;}
+function x2(t) {return sin(t/10)*100+rx2;}
+function y2(t) {return cos(t/10)*100+ry2;}
 
-function parametric() {
+function parametric(n) {
 	stroke(0);
 	strokeWeight(5);
 	translate(width/2, height/2);
-	for (let i = 0; i < 3; i++) {
+	for (let i = 0; i < n; i++) {
 		line(x1(t+i*200), y1(t+i*200), x2(t+i*200), y2(t+i*200));
 	}
 }
 
+class Parametric {
+	constructor(n) {
+		this.t = 0;
+		this.n = n;
+		this.vt = random(10, 100);
+		this.isAlive = 1;
+	}
+
+	show() {
+		print("HERE!");
+		stroke(0);
+		strokeWeight(5);
+		//translate(width/2, height/2);
+
+		for (let i = 0; i < this.n; i++) {
+			line(x1(this.t+i+200), y1(this.t+i+200), x2(this.t+i+200), y2(this.t+i+200));
+		}
+		
+		this.t = this.t + this.vt;
+		t = this.t;
+
+		if (this.t > random(100000,200000)) {
+			this.isAlive = 0;
+		}
+	}
+	
+}
+
+//function x1(t) {return sin(t/10)*200 + sin(t/5)*100;}
+//function y1(t) {return cos(t/10)*200;}
+//function x2(t) {return sin(t/10)*200 + sin(t)*2;}
+//function y2(t) {return sin(t/10)*200 + cos(t/12)*20;}
 //---------------------------BACKGROUND TEXTURE---------------------------//
 function makeFilter() {
 	//taken from https://openprocessing.org/sketch/1632092
@@ -479,8 +535,8 @@ function makeFilter() {
 	overAllTexture.loadPixels();
 	for (var i = 0; i < w; i++) { // noprotect
 		for (var j = 0; j < h; j++) {
-			overAllTexture.set(i, j, color(0, 0, 99,
-					0.9*noise(i / 3, j / 3, (i * j) / 50) * (5 + 10*Math.random()) ) );
+			overAllTexture.set(i, j, color(0, 0, 0,
+					2*noise(i / 3, j / 3, (i * j) / 50) * (5 + 10*Math.random()) ) );
 		}
 	}
 	overAllTexture.updatePixels();
