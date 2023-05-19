@@ -8,6 +8,18 @@
 		<!-- LB -->
 
 <item>
+<title>paisagem sonora #1</title>
+<guid>https://ofefo.com.br/blog.html#paisagem-sonora-1</guid>
+<pubDate>Thu, 18 May 2023 20:53:24 -0300</pubDate>
+<description><![CDATA[
+<audio controls>    
+        <source src="./paisagem1.mp3" type="audio/mp3">    
+        Your browser does not support the audio player!                           
+</audio> 
+]]></description>
+</item>
+
+<item>
 <title>grandes decepções na internet</title>
 <guid>https://ofefo.com.br/blog.html#grandes-decepcoes-na-internet</guid>
 <pubDate>Sun, 09 Apr 2023 22:54:52 -0300</pubDate>
