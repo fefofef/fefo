@@ -7,6 +7,13 @@
         <title>Ubimus</title>
         <link rel="stylesheet" href="../style.css" type="text/css"
          media="screen" title="no title" charset="utf-8">
+<style>
+h1 {font-size: 2em;color:OldLace;}
+h2 {font-size: 1.8em;color:Moccasin} 
+h3 {font-size: 1.5em;color:SandyBrown}
+h4 {font-size: 1.3em;color:Coral}
+h5 {font-size: 1.1em;color:Tomato}
+</style>
 	<script charset="utf-8">
 	function show(shown, hidden) {
       document.getElementById(shown).style.display='block';
@@ -22,9 +29,10 @@
 <h1>Non-human companionship: Practicing free improvisation through interaction with machines</h1>
 <h2>Felippe Barros (PPGA-UFES)<br> Sérgio Freire (Escola de Música-UFMG)<br> Leandro Costalonga (Departamento de Computação e Eletrônica-UFES)</h2>
 
+<div id="Page1">
 <button type="button" class="collapsible">Abstract</button>
 <div class="content">
-  <p>Free improvisation is a musical genre that defies traditional
+<p>Free improvisation is a musical genre that defies traditional
 forms of music-making, defining itself by its absences. This creates a
 particular environment that imposes challenges to those trying to learn it and
 to educators inspired to teach it. Generally, ensemble practice is considered
@@ -36,7 +44,14 @@ the problem. To do so, we present a custom-designed improvisation machine as a
 model example and a preliminary evaluation done it.</p>
 </div>
 <br>
+<nav>
+	<b>
+		<a href="#" onclick="return show('Page2','Page1');">>>></a>&nbsp;
+	</b>
+</nav>
+</div>
 
+<div id="Page2" style="display: none">
 <h3>Introduction</h3>
 
 <button type="button" class="collapsible">Defining free improvisation</button>
@@ -101,8 +116,15 @@ initiated as an undergraduate thesis in music education. It is currently being
 further developed as part of a Master’s research project.</p>
 </div>
 <br>
+<nav>
+	<b>
+		<a href="#" onclick="return show('Page1','Page2');"><<<</a>&nbsp;
+		<a href="#" onclick="return show('Page3','Page2');">>>></a>
+	</b>
+</nav>
+</div>
 
-
+<div id="Page3" style="display: none">
 <h3>Pedagogical methods for musical improvisation</h3>
 <button type="button" class="collapsible">Improvisation and spontaneous speech</button>
 <div class="content">
@@ -163,7 +185,15 @@ reluctance among music educators to embrace technological tools for
 instruction.</p>
 </div>
 <br>
+<nav>
+	<b>
+		<a href="#" onclick="return show('Page2','Page3');"><<<</a>&nbsp;
+		<a href="#" onclick="return show('Page4','Page3');">>>></a>
+	</b>
+</nav>
+</div>
 
+<div id="Page4" style="display: none">
 <h3>Challenges to teach free improvisation</h3>
 <button type="button" class="collapsible">Free improvisation language</button>
 <div class="content">
@@ -240,27 +270,17 @@ environmental resources and the participation of the audience.</p>
 </div>
 <br>
 
-<button type="button" class="collapsible">Hall (2009)</button>
+<button type="button" class="collapsible">Different approaches</button>
 <div class="content">
 <p>Hall (2009) offers an alternative method to learn free improvisation, compiling
 exercises, and warm-ups that cover practices for groups, duets, and even solo
 playing. His teaching seems to be preoccupied with the awareness needed for
 improvisers to accomplish fluid interactions and subtle explorations of the
 sound materials employed during a performance.</p>
-</div>
-<br>
-
-<button type="button" class="collapsible">Crook (2006)</button>
-<div class="content">
 <p>In another example, Crook (2006) offers a guide to learning free jazz (also
 referred to as free improvisation in the book) by departing from the
 understanding of conventional jazz. For him, one must be familiar with what he
 is freeing himself from to be truly free.</p>
-</div>
-<br>
-
-<button type="button" class="collapsible">Clemente et al. (2020)</button>
-<div class="content">
 <p>Clemente et al. (2020) conducted a series of experiments with ICT and
 Ubiquitous Computing in a gaming format to support free improvisation practices
 with an ensemble of saxophone, observing improvements in the sonority of the
@@ -281,8 +301,15 @@ revolve around a teacher figure who imparts information in a one-way direction,
 replicating the banking model that Freire criticized.</p>
 </div>
 <br>
+<nav>
+	<b>
+		<a href="#" onclick="return show('Page3','Page4');"><<<</a>&nbsp;
+		<a href="#" onclick="return show('Page5','Page4');">>>></a>
+	</b>
+</nav>
+</div>
 
-<hr />
+<div id="Page5" style="display: none">
 <h3>Machine improvisation as a valuable approach</h3>
 <button type="button" class="collapsible">Impacts of the pandemic on music</button>
 <div class="content">
@@ -361,7 +388,15 @@ mimicking the companion of other improvisers or even providing a different kind
 of interaction than what is possible with human company.</p>
 </div>
 <br>
+<nav>
+	<b>
+		<a href="#" onclick="return show('Page4','Page5');"><<<</a>&nbsp;
+		<a href="#" onclick="return show('Page6','Page5');">>>></a>
+	</b>
+</nav>
+</div>
 
+<div id="Page6" style="display: none">
 <h3>Engenhoca</h3>
 <button type="button" class="collapsible">What is an "engenhoca"?</button>
 <div class="content">
@@ -450,7 +485,15 @@ sonic output.<br>
 session.</p>
 </div>
 <br>
+<nav>
+	<b>
+		<a href="#" onclick="return show('Page5','Page6');"><<<</a>&nbsp;
+		<a href="#" onclick="return show('Page7','Page6');">>>></a>
+	</b>
+</nav>
+</div>
 
+<div id="Page7" style="display: none">
 <h3>Preliminary evaluation</h3>
 <button type="button" class="collapsible">Participants</button>
 <div class="content">
@@ -480,7 +523,15 @@ participant saw “potential” for the idea, but felt the “lack of a corporea
 presence” as a downside to the interaction.</p>
 </div>
 <br>
+<nav>
+	<b>
+		<a href="#" onclick="return show('Page6','Page7');"><<<</a>&nbsp;
+		<a href="#" onclick="return show('Page8','Page7');">>>></a>
+	</b>
+</nav>
+</div>
 
+<div id="Page8" style="display: none">
 <h3>Discussion and future perspectives</h3>
 <button type="button" class="collapsible">Reprise</button>
 <div class="content">
@@ -511,6 +562,12 @@ analysis of musical data that has been played and network communication
 connection that could enable different modes of interaction.</p>
 </div>
 <br>
+<nav>
+	<b>
+		<a href="#" onclick="return show('Page7','Page8');"><<<</a>&nbsp;
+	</b>
+</nav>
+</div>
 
 </div>
 <script>
@@ -529,5 +586,5 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 </script>
-    </body>
+</body>
 </html>
