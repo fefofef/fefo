@@ -13,6 +13,18 @@ h2 {font-size: 1.8em;color:Moccasin}
 h3 {font-size: 1.5em;color:SandyBrown}
 h4 {font-size: 1.3em;color:Coral}
 h5 {font-size: 1.1em;color:Tomato}
+.centeredimg {
+    display: table-cell;
+    height: 50%;
+    text-align: center;
+    width: 50%;
+    vertical-align: middle;
+}
+img.presentationimg {
+	width:50%;
+	height:50%;
+}
+
 </style>
 	<script charset="utf-8">
 	function show(shown, hidden) {
@@ -30,8 +42,8 @@ h5 {font-size: 1.1em;color:Tomato}
 
 <div id="Page0">
 <h2>Felippe Barros (PPGA-UFES), Sérgio Freire (Escola de Música-UFMG), Leandro Costalonga (Departamento de Computação e Eletrônica-UFES)</h2>
-<img style="width:30%; height:40%" src="./ubimus/FelippeBarros.jpg" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img style="width:30%; height:30%" src="./ubimus/SergioFreire2.jpg" align="center">
+<img style="width:30%; height:40%" src="./ubimus/FelippeBarros.jpg" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img style="width:30%; height:30%" src="./ubimus/SergioFreire2.jpg" >
 <img style="width:30%; height:30%" src="./ubimus/LeandroCostalonga.png" align="right">
 <br>
 <br>
@@ -76,7 +88,10 @@ model example and a preliminary evaluation done it.</p>
 than its sonic output [Borgo 2022, 167], [Stenström 2009, 105] [Hickey 2009,
 294]. It is conceived as spontaneous creations, with no settled prior
 references (such as motifs, melodies, or chord progressions) as it is usually
-the case in other improvised music genres.</p>
+the case in other improvised music genres.</p> 
+<div class="centeredimg">
+	<img src="./ubimus/Company.jpg" class="presentationimg" alt="Company">
+</div>
 </div>
 <br>
 
@@ -114,6 +129,9 @@ designed for the task of live improvisation, typically in interaction with a
 musician. The development of such systems has been a recurring topic in
 computer music research, dating back to the pioneering work of George Lewis in
 the 80’s [Lewis 2000].</p>
+<div class="centeredimg">
+	<img src="./ubimus/Voyager.jpg" alt="George Lewis' Voyager" class="presentationimg"/>
+</div>
 </div>
 <br>
 
@@ -159,6 +177,9 @@ for, at least, the presence of improvisation in general musical training.
 The paradox appears when music education curricula do the opposite of what would be
 expected, with almost no space at all for improvisation courses in Western
 education [Sawyer 2007].</p>
+<div class="centeredimg">
+	<img src="./ubimus/Barry2.png" class="presentationimg" alt="Barry Harris' class">
+</div>
 </div>
 <br>
 
@@ -171,15 +192,21 @@ embellishment (1), patterns and models (2), problem-solving (3), play-by-ear
 <p>More recent approaches to music education have followed technological
 developments of the digital age, making use of a variety of available software
 to enhance the acquisition of a number of musical skills. </p>
+<div class="centeredimg">
+	<img src="./ubimus/Eurythmics.jpg" class="presentationimg" alt="Eurythmics class">
+</div>
 </div>
 <br>
 
 <button type="button" class="collapsible">Fern (1995)</button>
 <div class="content">
 <p>For instance, Fern (1995) proposes a computer program to teach jazz
-improvisation, using Miles Davis’ 1954 recording of the tune Four as a
-transcribed reference for students and a chord-scale 2 method as a guide to
+improvisation, using Miles Davis’ 1954 recording of the tune <i>Four</i> as a
+transcribed reference for students and a chord-scale method as a guide to
 creating new improvised lines.</p>
+<div class="centeredimg">
+	<img src="./ubimus/Fern.png" class="presentationimg" alt="Fern's Masters Series">
+</div>
 </div>
 <br>
 
@@ -221,6 +248,9 @@ boundaries for harmonic, rhythmic and melodic discourses.</p>
 improvisation, we have a type of improvised discourse that does not belong to
 any specific idiom, does not adhere to any kind of syntactic rules nor uses any
 predetermined vocabulary.</p>
+<div class="centeredimg">
+	<img src="../feed/qi115.jpg" class="presentationimg" alt="Quartas de Improviso #115">
+</div>
 </div>
 <br>
 
@@ -263,6 +293,9 @@ practices. [Corbett 2016, 119] [Stenström 2009, 38].</p>
 solo playing may not provide the most solid foundation for ensemble
 improvisation, as the latter relies heavily on the musical interplay among its
 participants.</p>
+<div class="centeredimg">
+	<img src="./ubimus/OrquestraErrante.jpg" class="presentationimg" alt="Fern's Masters Series">
+</div>
 </div>
 <br>
 
@@ -427,6 +460,9 @@ machine built in an improvised manner.</p>
 <p>Engenhoca is a rule-based [Tatar and Pasquier 2019] transformative system [Rowe
 1992, 7] that mirrors musical concepts and personal aesthetic preferences of
 the author [Barros 2021].</p>
+<div class="centeredimg">
+	<img src="./ubimus/Engenhoca.png" class="presentationimg" alt="Engenhoca main patch">
+</div>
 </div>
 <br>
 
@@ -464,6 +500,9 @@ responsible for different musical tasks: audio analysis (1), decision-making
 <p>The audio analysis (1) subpatch is capable of discerning different
 characteristics of timbre, pitch, attack, rhythm, articulation, dynamics, and
 phrasing of incoming audio.</p>
+<div class="centeredimg">
+	<img src="./ubimus/Analysis.jpg" class="presentationimg" alt="Data flow representation of audio analysis subpatch">
+</div>
 </div>
 <br>
 
@@ -476,14 +515,9 @@ virtual players).</p>
 <p>Rhythmic transformations are applied over a list of durations extracted from
 the input (time ellapsed between an onset and an offset), generating musical
 phrases with different sizes that vary in response to the average duration of
-the last phrase played by the human. In a similar way, pitch transformations
-are applied over pitch sets that are extracted from the input, in a style
+the last phrase played by the human. The pitch transformations are applied over
+pitch sets that are extracted from the input, in a style
 similar to what is commonly used when composing serial atonal music.</p>
-<p>The opening or closing of a voice is allowed when intensity, intervallic
-relationships, or rhythmic data from what is being played changes drastically
-wtem. The characteristics of each note that will be played are defined
-separately by each voice subpatch, selecting meaningful elements of musical
-input and performing varied transformations on it.</p>
 </div>
 <br>
 
